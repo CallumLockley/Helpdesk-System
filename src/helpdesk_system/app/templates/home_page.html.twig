@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ css_path }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+<section id="login" class="min-vh-100">
+    <div id="cover-caption">
+        <div class="container shadow-lg">
+            <div class="row text-white ">
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    <h1 class="display-4 py-2 text-center text-bold ">Helpdesk System</h1>
+                    <div class="px-2 mt-5 ">
+                        <form method="POST" action="actions.php" class="justify-content-center">
+                            <div class="form-group">
+                                <label class="sr-only fsize-20">Username</label>
+                                <input type="text" name="username" class="form-control">
+                            </div>
+                            <div class="pt-4 pb-4 form-group">
+                                <label class="sr-only fsize-20">Password</label>
+                                <input type="password" name="password" class="form-control">
+                            </div>
+                            <div>
+                                <a href="mailto:someone@yoursite.com">Request Password Reset</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary m-2 btn-lg">Sign In</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

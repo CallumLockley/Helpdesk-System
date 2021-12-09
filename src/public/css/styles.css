@@ -1,0 +1,76 @@
+*{
+    font-family: "Montserrat" !important;
+    font-weight: normal;
+}
+
+
+.navbar-custom {
+    background-color: rgba(0,0,0,0.7);
+}
+
+
+body{
+    background: lightgrey !important;
+}
+
+.container{
+    background-color: rgba(0,0,0,0.7);
+}
+
+
+
+.text-bold{
+    font-weight: bold !important;
+    text-shadow: 2px 2px 8px black;
+}
+
+.fsize-20{
+    font-size: 20px
+}
+
+
+#login {
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#options{
+    min-height: 75%;
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+#options-area{
+    min-width: 75%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    background: lightgrey !important;
+}
+
+#cover-caption {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    background: lightgrey !important;
+}
+
+/* only used for background overlay not needed for centering */
+form:before {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+    border-radius: 10px;
+}

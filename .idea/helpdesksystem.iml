@@ -8,6 +8,10 @@
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/slim/slim" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/pimple/pimple" />
       <excludeFolder url="file://$MODULE_DIR$/src/vendor/nikic/fast-route" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/slim/twig-view" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/twig/twig" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
