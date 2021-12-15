@@ -9,6 +9,7 @@ $url_root = $_SERVER['SCRIPT_NAME'];
 $url_root = implode('/', explode('/', $url_root, -1));
 $css_path = $url_root . '/css/styles.css';
 
+define('URL_root', $url_root);
 define('CSS_PATH', $css_path);
 define('APP_NAME', 'Helpdesk System');
 
@@ -30,6 +31,14 @@ $settings =
                                 'auto_reload' => true,
                             ]],
             ],
+        "database_settings" =>
+            [
+                'host' => 'localhost',
+                'user' => 'root',
+                'password' => '',
+                'database_name' => 'helpdesk_system'
+
+            ]
     ];
 
 return $settings;

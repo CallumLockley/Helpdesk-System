@@ -3,22 +3,35 @@
     font-weight: normal;
 }
 
+body{
+    background: lightgrey !important;
+}
+
+ /*NavBar*/
+.navbar .navbar-brand{
+    margin-left:10% !important;
+}
 
 .navbar-custom {
     background-color: rgba(0,0,0,0.7);
 }
 
 
-body{
-    background: lightgrey !important;
-}
-
+/*Container*/
 .container{
     background-color: rgba(0,0,0,0.7);
 }
 
+/*Dashboard*/
+#dashboard .container{
+    background-color: white;
+
+}
 
 
+
+
+/*Login Page*/
 .text-bold{
     font-weight: bold !important;
     text-shadow: 2px 2px 8px black;
