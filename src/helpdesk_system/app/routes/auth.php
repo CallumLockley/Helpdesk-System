@@ -7,6 +7,7 @@ $app->post('/auth', function (Request $request, Response $response) use ($app) {
 
     $tainted = $request->getParsedBody();
 
+    $_SESSION['username'] = $tainted['username'];
 
     $user = "root";
     $pass = "";
@@ -18,7 +19,7 @@ $app->post('/auth', function (Request $request, Response $response) use ($app) {
         die("Connection failed: " . $conn->connect_error);
         return $redirect = $response->withRedirect(URL_root . '/');
     }else{
-        return $redirect = $response->withRedirect(URL_root . '/', 301);
+        return $redirect = $response->withRedirect(URL_root . '/dashboard', 301);
 
     }
 });
