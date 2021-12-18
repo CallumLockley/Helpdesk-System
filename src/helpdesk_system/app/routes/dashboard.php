@@ -19,7 +19,8 @@ function dashboard($app, $response) : void {
         'dashboard_page.html.twig',[
             'page_heading_1' => APP_NAME,
             'css_path' => CSS_PATH,
-            'session' => $_SESSION['usernameLogin']
+            'username' => $_SESSION['username'],
+            'permission' => $_SESSION['userPerms']
         ]);
 
 }

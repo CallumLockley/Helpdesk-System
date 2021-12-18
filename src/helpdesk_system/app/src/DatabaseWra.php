@@ -28,29 +28,36 @@ class DatabaseWra
         }
     }
 
-    public function checkLoginDetails($username, $userPassword): int
+    public function checkLoginDetails($username, $password)
     {
+        $password_result = false;
         try{
             $connect = $this->openConnection();
-            $query = "SELECT username, password FROM users WHERE username = :username AND password = :password";
+            $query = "SELECT password, permission FROM users WHERE username = :username";
             $statement = $connect->prepare($query);
             $statement->execute(
                 array(
-                    'username' => $username,
-                    'password' => $userPassword
+                    'username' => $username
                 )
             );
-            $resultCount = $statement->rowCount();
-            if($resultCount > 0 ){
-                $_SESSION['usernameLogin'] = $username;
-                return 1;
-            }
         } catch(PDOException $error)
         {
             $message = $error->getMessage();
-            return 0;
+            die();
         }
-        return 0;
+
+        $row = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if (is_array($row))
+        {
+            if (password_verify($password, $row['password']))
+            {
+                $_SESSION['username'] = $username;
+                $_SESSION['userPerms'] = $row['permission'];
+                $password_result = true;
+            }
+        }
+        return $password_result;
     }
 
     //Get user info from username
