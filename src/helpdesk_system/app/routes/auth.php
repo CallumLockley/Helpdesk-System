@@ -1,38 +1,26 @@
 <?php
 
+
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 $app->post('/auth', function (Request $request, Response $response) use ($app) {
 
     $tainted = $request->getParsedBody();
+    $tainted_username = $tainted['username'];
 
-    $_SESSION['username'] = $tainted['username'];
+    $validator = $app->getContainer()->get('validator');
+    $_SESSION['username'] = $validator->validateEmail($tainted_username);
 
-    $user = "root";
-    $pass = "";
-    $host = "localhost";
-    $dbdb = "helpdesk_system";
 
-    $conn = new mysqli($host, $user, $pass, $dbdb);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-        return $redirect = $response->withRedirect(URL_root . '/');
+    $database = $app->getContainer()->get('database');
+    $count = $database->checkLoginDetails($_SESSION['username'], $tainted['password']);
+
+
+    if($count == 1){
+        return $redirect = $response->withRedirect(URL_root . '/dashboard');
+
     }else{
-        return $redirect = $response->withRedirect(URL_root . '/dashboard', 301);
-
+        return $redirect = $response->withRedirect(URL_root . '/');
     }
 });
-
-function authUser($app, $response) : void
-{
-    $view = $app->getContainer()->get('view');
-    $view->render(
-        $response,
-        'dashboard_page.html.twig',
-        [
-            'page_heading_1' => APP_NAME,
-            'css_path' => CSS_PATH,
-        ]
-    );
-}

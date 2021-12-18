@@ -18,3 +18,13 @@ $container['view'] = function ($container)
 
     return $view;
 };
+
+$container['validator'] = function($container){
+    $validator = new \HelpdeskSystem\Validator();
+    return $validator;
+};
+
+$container['database'] = function($container) {
+    $database = new \HelpdeskSystem\DatabaseWra();
+    return $database;
+};

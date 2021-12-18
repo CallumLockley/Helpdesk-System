@@ -1,12 +1,12 @@
 <?php
 
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ResponseInterface as Response;
 
 $app->GET('/dashboard',
     function(Request $request, Response $response) use ($app){
 
-
+    $this->database->openConnection();
     dashboard($app, $response);
 
 })->setName('dashboard');
@@ -19,7 +19,7 @@ function dashboard($app, $response) : void {
         'dashboard_page.html.twig',[
             'page_heading_1' => APP_NAME,
             'css_path' => CSS_PATH,
-            'username' =>$_SESSION['username']
+            'session' => $_SESSION['usernameLogin']
         ]);
 
 }
