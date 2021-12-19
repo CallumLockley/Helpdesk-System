@@ -20,11 +20,13 @@ $container['view'] = function ($container)
 };
 
 $container['validator'] = function($container){
-    $validator = new \HelpdeskSystem\Validator();
-    return $validator;
+    return new \HelpdeskSystem\Validator();
 };
 
 $container['database'] = function($container) {
-    $database = new \HelpdeskSystem\DatabaseWra();
-    return $database;
+    return new \HelpdeskSystem\DatabaseWra();
+};
+
+$container['bcryptWrapper'] = function($container){
+    return new \HelpdeskSystem\BcryptWrapper();
 };

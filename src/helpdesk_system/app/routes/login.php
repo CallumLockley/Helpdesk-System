@@ -5,12 +5,17 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 $app->get('/', function (Request $request, Response $response) use ($app) {
 
+    $options= array(
+        'cost'=>BCRYPT_COST,
+    );
 
-    homePage($app, $response);
+    $test = password_hash('test', BCRYPT_AL, $options);
 
-})->setName('logIn');
+    homePage($app, $response, $test);
 
-function homePage($app, $response) : void
+})->setName('login');
+
+function homePage($app, $response, $test) : void
 {
     $view = $app->getContainer()->get('view');
     $view->render(
@@ -19,8 +24,7 @@ function homePage($app, $response) : void
         [
             'page_heading_1' => APP_NAME,
             'css_path' => CSS_PATH,
-            'session' => $_SESSION['usernameLogin']
-
+            'match' => $_SESSION['result'],
         ]
     );
 }

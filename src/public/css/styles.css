@@ -23,13 +23,12 @@ body{
 }
 
 /*Dashboard*/
-#dashboard .container{
-    background-color: white;
-
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
 }
-
-
-
 
 /*Login Page*/
 .text-bold{

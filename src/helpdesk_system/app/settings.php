@@ -13,6 +13,12 @@ define('URL_root', $url_root);
 define('CSS_PATH', $css_path);
 define('APP_NAME', 'Helpdesk System');
 
+//Hashing - BCrypt
+define('BCRYPT_AL', PASSWORD_DEFAULT);
+define('BCRYPT_COST', 12);
+define('BCRYPT_SALT', 'ggYQBrUdtineZNVjdnILJaATuvWNpFqY');
+
+
 $settings =
     [
         "settings" =>

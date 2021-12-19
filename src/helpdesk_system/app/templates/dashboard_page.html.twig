@@ -1,18 +1,27 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
 
-<p>{{ session }}</p>
 
-    <nav class="navbar navbar-light bg-light navbar-expand-md">
-        <div class="container-fluid">
-            <a class="navbar-brand">
-                <h1 class="pl-5">Helpdesk System</h1>
-            </a>
-        <form method="POST" action="logout" class="form-inline my-2 my-lg-0 navbar-right">
-            <button class="btn" type="submit">Sign Out</button>
-        </form>
+<p>{{ permission }}</p>
+    <div class="row pt-5">
+        <div class="col-md-12 text-center">
+            <h2>Select an action...</h2>
         </div>
-    </nav>
+    </div>
+    <section id="dashboard" class="">
+        <div class="mx-auto">
+            <div class="row pt-5">
+                <div class="col-md-2"></div>
 
+                <div class="btn-group btn-group-lg col-md-8" >
+                    <button type="button" class="btn btn-primary">Create a ticket</button>
+                    <button type="button" class="btn btn-primary">View your tickets</button>
+                    {% if permission == 2 %}
+                    <button type="button" class="btn btn-primary">Admin Panel</button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
 
 {% endblock %}
