@@ -13,7 +13,7 @@ $app->get('/', function (Request $request, Response $response) use ($app) {
 
     homePage($app, $response, $test);
 
-})->setName('logIn');
+})->setName('login');
 
 function homePage($app, $response, $test) : void
 {
