@@ -60,10 +60,6 @@ class DatabaseWra
         return $password_result;
     }
 
-    //Get user info from username
-
-    //Check if user info matches for logging in
-
 
     //Update password
 

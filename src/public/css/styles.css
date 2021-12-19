@@ -5,6 +5,11 @@
 
 body{
     background: lightgrey !important;
+    overflow: hidden;
+}
+
+button  {
+    min-width: 100px !important;
 }
 
  /*NavBar*/
@@ -23,11 +28,9 @@ body{
 }
 
 /*Dashboard*/
-.center {
-    margin: auto;
-    width: 50%;
-    border: 3px solid green;
-    padding: 10px;
+#dashboard{
+    padding-top: 2.5rem;
+    margin-top: 2.5rem;
 }
 
 /*Login Page*/
@@ -40,6 +43,9 @@ body{
     font-size: 20px
 }
 
+.error{
+    color: red;
+}
 
 #login {
     background-size: cover;
@@ -76,7 +82,7 @@ body{
 }
 
 /* only used for background overlay not needed for centering */
-form:before {
+#login .form:before {
     content: '';
     height: 100%;
     left: 0;

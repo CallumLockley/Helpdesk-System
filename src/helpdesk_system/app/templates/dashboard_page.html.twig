@@ -12,15 +12,15 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 mx-auto text-center form">
                         <div class="px-2 mt-5 ">
 
-                            <form method="POST" action="" class="justify-content-center pb-3">
-                                <button type="submit" class="btn btn-primary m-2 btn-lg w-100">View All Tickets</button>
+                            <form method="POST" action="create" class="justify-content-center pb-3">
+                                <button type="submit" class="btn btn-primary m-2 btn-lg w-100">Create a ticket</button>
                             </form>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 mx-auto text-center form pb-3">
                         <div class="px-2 mt-5 ">
-                            <form method="POST" action="" class="justify-content-center">
-                                <button type="submit" class="btn btn-primary m-2 btn-lg w-100">View All Tickets</button>
+                            <form method="POST" action="view" class="justify-content-center">
+                                <button type="submit" class="btn btn-primary m-2 btn-lg w-100">View Your Tickets</button>
                             </form>
                         </div>
                     </div>
@@ -30,23 +30,28 @@
                 <div class="btn-group">
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 mx-auto text-center form ">
                     <div class="px-2 mt-5">
-                        <form method="POST" action="" class="justify-content-center pb-3">
-                            <button type="submit" class="btn btn-primary m-2 btn-lg w-100">View All Tickets</button>
+                        <form method="POST" action="settings" class="justify-content-center pb-3">
+                            <button type="submit" class="btn btn-primary m-2 btn-lg w-100">Settings</button>
                         </form>
                     </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 mx-auto text-center form pb-3">
-                    <div class="px-2 mt-5 ">
-                        <form method="POST" action="" class="justify-content-center">
-                            <button type="submit" class="btn btn-primary m-2 btn-lg w-100">View All Tickets</button>
-                        </form>
-                    </div>
-                </div>
+{#                Only visible to support users#}
+                    {% if permission == 1 %}
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 mx-auto text-center form pb-3">
+                            <div class="px-2 mt-5 ">
+                                <form method="POST" action="view_all" class="justify-content-center">
+                                    <button type="submit" class="btn btn-primary m-2 btn-lg w-100">View All Tickets</button>
+                                </form>
+                            </div>
+                        </div>
+                    {% endif %}
+
+{#                    Only visible to admin users#}
                 {% if permission == 2 %}
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 mx-auto text-center form pb-3">
                         <div class="px-2 mt-5 ">
                             <form method="POST" action="" class="justify-content-center">
-                                <button type="submit" class="btn btn-primary m-2 btn-lg w-100">View All Tickets</button>
+                                <button type="submit" class="btn btn-primary m-2 btn-lg w-100">Admin Panel</button>
                             </form>
                         </div>
                     </div>
@@ -56,5 +61,7 @@
         </div>
 
     </section>
+
+
 
 {% endblock %}
