@@ -3,4 +3,39 @@
     <div class="pt-5">
 
     </div>
+    <section id="create-ticket" class="min-vh-100">
+        <div id="cover-caption">
+            <div class="container shadow-lg">
+                <div class="row text-white ">
+                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                        <h1 class="display-4 py-2 text-center text-bold ">Create a ticket</h1>
+                        <div class="px-2 mt-5 ">
+
+                            <form method="POST" action="create_ticket" class="justify-content-center">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        Dropdown button
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only fsize-20">Username</label>
+                                    <input type="text" name="username" class="form-control" required>
+                                </div>
+                                <div class="pt-4 pb-4 form-group">
+                                    <label class="sr-only fsize-20">Password</label>
+                                    <input type="password" name="password" class="form-control" >
+                                </div>
+                                <button type="submit" class="btn btn-primary m-2 btn-lg">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

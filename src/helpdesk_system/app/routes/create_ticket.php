@@ -18,8 +18,9 @@ function create_ticket($app, $response) : void {
         'create_ticket.html.twig',[
             'page_heading_1' => APP_NAME,
             'css_path' => CSS_PATH,
+            'dashboard_route' => URL_root . '/dashboard',
             'username' => $_SESSION['username'],
-            'permission' => $_SESSION['userPerms']
+            'permission' => $_SESSION['userPerms'],
         ]);
 
 }
