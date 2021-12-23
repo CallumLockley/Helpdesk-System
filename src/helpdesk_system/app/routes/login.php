@@ -8,14 +8,11 @@ $app->get('/', function (Request $request, Response $response) use ($app) {
     $options= array(
         'cost'=>BCRYPT_COST,
     );
-
-    $test = password_hash('test', BCRYPT_AL, $options);
-
-    homePage($app, $response, $test);
+    homePage($app, $response);
 
 })->setName('login');
 
-function homePage($app, $response, $test) : void
+function homePage($app, $response) : void
 {
     $view = $app->getContainer()->get('view');
     $view->render(
