@@ -24,7 +24,7 @@ $container['validator'] = function($container){
 };
 
 $container['database'] = function($container) {
-    return new \HelpdeskSystem\DatabaseWra();
+    return new \HelpdeskSystem\DatabaseWrapper();
 };
 
 $container['bcryptWrapper'] = function($container){

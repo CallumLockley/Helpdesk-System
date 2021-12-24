@@ -5,7 +5,7 @@ namespace HelpdeskSystem;
 use PDO;
 use PDOException;
 
-class DatabaseWra
+class DatabaseWrapper
 {
     public function __construct()
     {

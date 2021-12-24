@@ -21,6 +21,8 @@ function create_ticket($app, $response) : void {
             'dashboard_route' => URL_root . '/dashboard',
             'username' => $_SESSION['username'],
             'permission' => $_SESSION['userPerms'],
+            'priorities' => PRIORITIES,
+            'ticket_areas' => TICKET_AREAS
         ]);
 
 }

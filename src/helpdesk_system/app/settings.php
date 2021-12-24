@@ -19,6 +19,12 @@ define('BCRYPT_COST', 12);
 define('BCRYPT_SALT', 'ggYQBrUdtineZNVjdnILJaATuvWNpFqY');
 
 
+$priorities = ['Low','Medium', 'High'];
+define('PRIORITIES', $priorities);
+
+$ticket_areas = ['Hardware', 'Account Details', 'Software','Other'];
+define('TICKET_AREAS', $ticket_areas);
+
 $settings =
     [
         "settings" =>

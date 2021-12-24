@@ -57,12 +57,17 @@ button  {
     text-shadow: 2px 2px 8px black;
 }
 
+/*Ticket Form*/
+ticket_form{
+    max-width: 200px;
+}
+
 .fsize-20{
     font-size: 20px
 }
 
-.error{
-    color: red;
+.fsize-30{
+    font-size: 30px
 }
 
 #login {
