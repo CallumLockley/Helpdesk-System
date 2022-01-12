@@ -13,14 +13,14 @@
 
                             <form method="POST" action="{{ dashboard_route }}" class="justify-content-center">
                                 <div class="m-4 form-group">
-                                    <label class="sr-only fsize-30" for="color">Priority:</label>
+                                    <label class="sr-only fsize-30" for="priority">Priority:</label>
                                     <select class="pr-5 ml-4" name="priority" id="priority">
                                         {% for priority in priorities %}
                                             <option value={{priority}}>{{ priority }}</option>
                                         {% endfor %}
                                     </select>
                                     <span>&nbsp;&nbsp;&nbsp;</span>
-                                    <label class="sr-only fsize-30" for="color">Area:</label>
+                                    <label class="sr-only fsize-30" for="area">Area:</label>
                                     <select class="" name="area" id="area">
                                         {% for area in ticket_areas %}
                                             <option class="fsize-20" value={{area}}>{{ area }}</option>
