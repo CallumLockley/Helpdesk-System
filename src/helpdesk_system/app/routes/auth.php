@@ -13,13 +13,14 @@ $app->post('/auth', function (Request $request, Response $response) use ($app) {
     $validator = $app->getContainer()->get('validator');
     $_SESSION['username'] = $validator->validateEmail($tainted_username);
 
-
     $database = $app->getContainer()->get('database');
     $password = $database->checkLoginDetails($_SESSION['username'], $tainted_password);
 
     if($password){
-        return $redirect = $response->withRedirect(URL_root . '/dashboard');
+        return  $response->withRedirect(URL_root . '/dashboard');
     }else{
-        return $redirect = $response->withRedirect(URL_root . '/');
+        $_SESSION['loginError'] = true;
+        $result = $response->withRedirect(URL_root . '/');
+        return $result;
     }
 });

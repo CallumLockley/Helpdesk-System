@@ -8,12 +8,6 @@ $app->get('/', function (Request $request, Response $response) use ($app) {
     $options= array(
         'cost'=>BCRYPT_COST,
     );
-    homePage($app, $response);
-
-})->setName('login');
-
-function homePage($app, $response) : void
-{
     $view = $app->getContainer()->get('view');
     $view->render(
         $response,
@@ -21,7 +15,7 @@ function homePage($app, $response) : void
         [
             'page_heading_1' => APP_NAME,
             'css_path' => CSS_PATH,
-            'match' => $_SESSION['result'],
+            'error' => $_SESSION['loginError']
         ]
     );
-}
+})->setName('login');

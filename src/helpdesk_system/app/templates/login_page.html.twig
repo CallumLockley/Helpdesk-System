@@ -22,6 +22,9 @@
                                 <label class="sr-only fsize-20">Password</label>
                                 <input type="password" name="password" class="form-control" >
                             </div>
+                            {% if error == 1 %}
+                            <p>There was an error logging in, please try again. {{ error }}</p>
+                            {% endif %}
                             <button type="submit" class="btn btn-primary m-2 btn-lg">Sign In</button>
                         </form>
                     </div>

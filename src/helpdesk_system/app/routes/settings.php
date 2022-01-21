@@ -22,5 +22,4 @@ function settings($app, $response) : void {
             'username' => $_SESSION['username'],
             'permission' => $_SESSION['userPerms'],
         ]);
-
 }

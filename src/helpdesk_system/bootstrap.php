@@ -1,13 +1,11 @@
 <?php
+session_unset();
 session_start();
+session_reset();
+
 require '../vendor/autoload.php';
 
 $settings = require __DIR__ . '/app/settings.php';
-
-//if (function_exists('xdebug_start_trace'))
-//{
-//  xdebug_start_trace();
-//}
 
 $container = new \Slim\Container($settings);
 
