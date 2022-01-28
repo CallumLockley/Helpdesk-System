@@ -142,14 +142,19 @@ class DatabaseWrapper
     }
 
     //Get all tickets
+    public function getAllTickets()
+    {
 
+    }
     //Get all tickets by given user
     public function getUsersTickets($userId)
     {
         try{
             $connect = $this->openConnection();
-            $query = "select * from tickets";
-            $statement = $connect->query($query);
+            $query = "select * from tickets where user_id = :user_id";
+            $statement = $connect->prepare($query);
+            $statement->bindParam(':user_id', $userId);
+            $statement->execute();
             $tickets = $statement->fetchAll(PDO::FETCH_ASSOC);
             var_dump($tickets);
         }
@@ -157,9 +162,25 @@ class DatabaseWrapper
         {
         die();
         }
+        return $tickets;
     }
 
     //Get amount of tickets
+    public function getAmountTickets()
+    {
+        try{
+            $connect = $this->openConnection();
+            $query = "select * from tickets";
+            $statement = $connect->query($query);
+            $count = $statement->rowCount();
+            var_dump($count);
+        }
+        catch(PDOException $error)
+        {
+            die();
+        }
+        return $count;
+    }
 
     //Get amount of open tickets
 

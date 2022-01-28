@@ -9,7 +9,7 @@ $app->POST('/view',
         $database = $app->getContainer()->get('database');
         $user_id = $_SESSION['user_id'];
 
-        $database->getUsersTickets($user_id);
+        $database->getAmountTickets($user_id);
 
         view_tickets($app, $response);
 
