@@ -18,4 +18,4 @@ $app->get('/', function (Request $request, Response $response) use ($app) {
             'error' => $_SESSION['loginError']
         ]
     );
-})->setName('login');
+})->setName('auth');

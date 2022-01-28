@@ -11,17 +11,17 @@
                         <h1 class="display-4 py-2 text-center text-bold ">Create a ticket</h1>
                         <div class="px-2 mt-5 ">
 
-                            <form method="POST" action="{{ dashboard_route }}" class="justify-content-center">
+                            <form method="POST" action="{{ create_ticket_route }}" class="justify-content-center">
                                 <div class="m-4 form-group">
                                     <label class="sr-only fsize-30" for="priority">Priority:</label>
-                                    <select class="pr-5 ml-4" name="priority" id="priority">
+                                    <select class="pr-5 ml-4" name="priority">
                                         {% for priority in ticket_priorities %}
                                             <option value={{priority}}>{{ priority }}</option>
                                         {% endfor %}
                                     </select>
                                     <span>&nbsp;&nbsp;&nbsp;</span>
-                                    <label class="sr-only fsize-30" for="area">Area:</label>
-                                    <select class="" name="area" id="area">
+                                    <label class="sr-only fsize-30" for="area">Category:</label>
+                                    <select class="" name="category">
                                         {% for category in ticket_categories %}
                                             <option class="fsize-20" value={{category}}>{{ category }}</option>
                                         {% endfor %}
@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="pt-4 pb-4 form-group">
                                     <label class="sr-only pb-2 fsize-30">Details</label>
-                                    <textarea type="password" name="password" class="form-control ticket_form" rows="4" cols="50" placeholder="Explain your issue in detail."></textarea>                                </div>
+                                    <textarea type="text" name="description" class="form-control ticket_form" rows="4" cols="50" placeholder="Explain your issue in detail."></textarea>                                </div>
                                 <button type="submit" class="btn btn-primary m-2 btn-lg">Submit</button>
                             </form>
                         </div>

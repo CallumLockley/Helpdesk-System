@@ -112,6 +112,35 @@ class DatabaseWrapper
 
         return $result;
     }
+
+    //Create Ticket
+    public function createTicket($userId, $ticket_content)
+    {
+        $result = false;
+        try{
+            $connect = $this->openConnection();
+            $query = "INSERT INTO tickets(user_id, title, priority, category, description) VALUES(:user_id, :title, :priority, :category, :description)";
+            $statement = $connect->prepare($query);
+            $statement->bindValue('user_id', $userId);
+            $statement->bindValue('title', $ticket_content['title']);
+            $statement->bindValue('priority', $ticket_content['priority']);
+            $statement->bindValue('category', $ticket_content['category']);
+            $statement->bindValue('description', $ticket_content['description']);
+
+            $insert = $statement->execute();
+
+            if($insert)
+            { $result = true; }
+
+        }catch(PDOException $error)
+        {
+            var_dump($error->getMessage());
+            die();
+        }
+        return $result;
+
+    }
+
     //Get all tickets
 
     //Get all tickets by given user

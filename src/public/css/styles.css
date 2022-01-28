@@ -4,10 +4,15 @@
 }
 
 body{
+    margin:0;
     background: lightgrey !important;
     overflow: hidden;
 }
-
+footer {
+    text-align: center;
+    margin-top: 10%;
+    padding: 3px;
+}
 .ft .content {
     padding-top: 20px;
     padding-bottom: 20px;
