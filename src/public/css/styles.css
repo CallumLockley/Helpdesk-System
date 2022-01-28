@@ -6,11 +6,11 @@
 body{
     margin:0;
     background: lightgrey !important;
-    overflow: hidden;
+    overflow: auto;
 }
 footer {
     text-align: center;
-    margin-top: 10%;
+    margin: 2em;
     padding: 3px;
 }
 .ft .content {
@@ -65,6 +65,15 @@ button  {
 ticket_form{
     max-width: 200px;
 }
+
+
+/* View Tickets */
+table{
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+}
+
 
 .fsize-20{
     font-size: 20px
