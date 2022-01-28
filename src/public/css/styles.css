@@ -1,3 +1,25 @@
+/* View Tickets */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+    background-color: #d3d3d3;
+
+    color: black;
+}
+
+th, td {
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #ffffff;
+    color: black;
+}
+
+
+
 *{
     font-family: "Montserrat" !important;
     font-weight: normal;
@@ -5,7 +27,7 @@
 
 body{
     margin:0;
-    background: lightgrey !important;
+    background-color: #d3d3d3 !important;
     overflow: auto;
 }
 footer {
@@ -66,15 +88,6 @@ ticket_form{
     max-width: 200px;
 }
 
-
-/* View Tickets */
-table{
-    display: flex;
-    justify-content: center;
-    border: 1px solid black;
-}
-
-
 .fsize-20{
     font-size: 20px
 }
@@ -107,14 +120,12 @@ table{
     width: 100%;
     position: relative;
     z-index: 1;
-    background: lightgrey !important;
 }
 
 #cover-caption {
     width: 100%;
     position: relative;
     z-index: 1;
-    background: lightgrey !important;
 }
 
 /* only used for background overlay not needed for centering */

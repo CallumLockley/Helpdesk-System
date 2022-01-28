@@ -144,6 +144,20 @@ class DatabaseWrapper
     //Get all tickets
 
     //Get all tickets by given user
+    public function getUsersTickets($userId)
+    {
+        try{
+            $connect = $this->openConnection();
+            $query = "select * from tickets";
+            $statement = $connect->query($query);
+            $tickets = $statement->fetchAll(PDO::FETCH_ASSOC);
+            var_dump($tickets);
+        }
+        catch(PDOException $error)
+        {
+        die();
+        }
+    }
 
     //Get amount of tickets
 

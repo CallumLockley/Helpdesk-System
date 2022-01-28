@@ -6,6 +6,11 @@ use Psr\Http\Message\ResponseInterface as Response;
 $app->POST('/view',
     function(Request $request, Response $response) use ($app){
 
+        $database = $app->getContainer()->get('database');
+        $user_id = $_SESSION['user_id'];
+
+        $database->getUsersTickets($user_id);
+
         view_tickets($app, $response);
 
     })->setName('viewTickets');
