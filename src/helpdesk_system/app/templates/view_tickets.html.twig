@@ -13,31 +13,37 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Title</th>
-                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>Priority</th>
+                                    <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
                                 <tr>
-                                    <td>Peter</td>
-                                    <td>Griffin</td>
-                                    <td>$100</td>
+                                    <td>1</td>
+                                    <td>Test</td>
+                                    <td>Test</td>
+                                    <td>Test</td>
+                                    <td>open</td>
                                     <td>
-                                        <button class="btn btn-primary">View</button></td>
+                                        <form method="POST" action="view_ticket/3">
+                                            <button type="submit" class="btn btn-outline-primary">View</button>
+                                        </form>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>Lois</td>
-                                    <td>Griffin</td>
-                                    <td>$150</td>
-                                </tr>
-                                <tr>
-                                    <td>Joe</td>
-                                    <td>Swanson</td>
-                                    <td>$300</td>
-                                </tr>
-                                <tr>
-                                    <td>Cleveland</td>
-                                    <td>Brown</td>
-                                    <td>$250</td>
-                                </tr>
+                                {% for ticket in tickets %}
+                                    <tr>
+                                        <td>{{ ticket['id'] }}</td>
+                                        <td>{{ ticket['title'] }}</td>
+                                        <td>{{ ticket['category'] }}</td>
+                                        <td>{{ ticket['priority'] }}</td>
+                                        <td>{{ ticket['status'] }}</td>
+                                        <td>
+                                            <form method="POST" action="view_ticket/{{ ticket['id'] }}">
+                                                <button type="submit" class="btn btn-outline-primary">View</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
                             </table>
                         </div>
                     </div>

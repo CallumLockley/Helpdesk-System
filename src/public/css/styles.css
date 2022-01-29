@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 /* View Tickets */
 table {
-    border-collapse: collapse;
+    justify-content: center;
     width: 100%;
 }
 th {
@@ -18,10 +19,8 @@ tr:nth-child(even){
     color: black;
 }
 
-
-
 *{
-    font-family: "Montserrat" !important;
+    font-family: "Ubuntu", sans-serif;
     font-weight: normal;
 }
 
