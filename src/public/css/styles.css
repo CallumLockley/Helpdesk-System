@@ -10,8 +10,12 @@ th {
     color: black;
 }
 
-th, td {
+th {
     padding: 8px;
+}
+td {
+    margin: 0;
+    padding: 0.2em;
 }
 
 tr:nth-child(even){

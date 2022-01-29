@@ -147,11 +147,10 @@ class DatabaseWrapper
     {
         try{
         $connect = $this->openConnection();
-        $query = "select * from tickets ";
+        $query = "SELECT tickets.*, users.username FROM tickets, users WHERE tickets.user_id = users.userId and tickets.status = 'Open' ORDER BY tickets.created ASC;  ";
         $statement = $connect->prepare($query);
         $statement->execute();
         $tickets = $statement->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($tickets);
     }
     catch(PDOException $error)
     {
@@ -166,12 +165,11 @@ class DatabaseWrapper
     {
         try{
             $connect = $this->openConnection();
-            $query = "select * from tickets where user_id = :user_id";
+            $query = "select * from tickets where user_id = :user_id ORDER BY created ASC;  ";
             $statement = $connect->prepare($query);
             $statement->bindParam(':user_id', $userId);
             $statement->execute();
             $tickets = $statement->fetchAll(PDO::FETCH_ASSOC);
-            var_dump($tickets);
         }
         catch(PDOException $error)
         {

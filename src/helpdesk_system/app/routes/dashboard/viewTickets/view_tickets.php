@@ -15,8 +15,10 @@ $app->POST('/view',
         $view = $app->getContainer()->get('view');
         $view->render($response,
             'view_tickets.html.twig',[
+                'page_heading' => 'Your Tickets',
                 'page_heading_1' => APP_NAME,
                 'css_path' => CSS_PATH,
+                'viewOption' => 'personal',
                 'dashboard_route' => URL_root . '/dashboard',
                 'username' => $_SESSION['username'],
                 'permission' => $_SESSION['userPerms'],
