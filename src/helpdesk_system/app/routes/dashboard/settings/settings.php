@@ -15,7 +15,7 @@ function settings($app, $response) : void {
 
     $view = $app->getContainer()->get('view');
     $view->render($response,
-        'settings.html.twig',[
+        'settings_update_password.html.twig',[
             'page_heading_1' => APP_NAME,
             'css_path' => CSS_PATH,
             'dashboard_route' => URL_root . '/dashboard',

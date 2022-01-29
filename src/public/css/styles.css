@@ -51,10 +51,6 @@ footer {
     background-color: #000;
 }
 
-button  {
-    min-width: 100px !important;
-}
-
  /*NavBar*/
 .navbar .navbar-brand{
     margin-left:10% !important;

@@ -9,7 +9,7 @@
                     <div class=" col-md-10 col-sm-6 mx-auto text-center form p-4">
                         <h1 class="display-4 py-2 text-center text-bold ">View Tickets</h1>
                         <div class="px-2 mt-5 ">
-                            <table>
+                            <table class="searchable sortable">
                                 <tr>
                                     <th>ID</th>
                                     <th>Title</th>
@@ -17,18 +17,6 @@
                                     <th>Priority</th>
                                     <th>Status</th>
                                     <th>Actions</th>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Test</td>
-                                    <td>Test</td>
-                                    <td>Test</td>
-                                    <td>open</td>
-                                    <td>
-                                        <form method="POST" action="view_ticket/3">
-                                            <button type="submit" class="btn btn-outline-primary">View</button>
-                                        </form>
-                                    </td>
                                 </tr>
                                 {% for ticket in tickets %}
                                     <tr>
@@ -39,12 +27,14 @@
                                         <td>{{ ticket['status'] }}</td>
                                         <td>
                                             <form method="POST" action="view_ticket/{{ ticket['id'] }}">
-                                                <button type="submit" class="btn btn-outline-primary">View</button>
+                                                <button type="submit" class="btn btn-primary">View</button>
                                             </form>
                                         </td>
                                     </tr>
                                 {% endfor %}
                             </table>
+
+                            <button class="btn btn-primary mt-5" onclick="history.back()">Back</button>
                         </div>
                     </div>
                 </div>
