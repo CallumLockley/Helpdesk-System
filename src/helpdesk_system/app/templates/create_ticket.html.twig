@@ -1,16 +1,14 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
     <div class="pt-5">
-
     </div>
-    <section id="create-ticket" class="min-vh-100 min-hh-100">
+    <section id="create-ticket" class="">
         <div id="cover-caption">
             <div class="container shadow-lg">
                 <div class="row text-white ">
                     <div class=" col-md-10 col-sm-6 mx-auto text-center form p-4">
                         <h1 class="display-4 py-2 text-center text-bold ">Create a ticket</h1>
                         <div class="px-2 mt-5 ">
-
                             <form method="POST" action="{{ create_ticket_route }}" class="justify-content-center">
                                 <div class="m-4 form-group">
                                     <label class="sr-only fsize-30" for="priority">Priority:</label>
@@ -33,8 +31,10 @@
                                 </div>
                                 <div class="pt-4 pb-4 form-group">
                                     <label class="sr-only pb-2 fsize-30">Details</label>
-                                    <textarea type="text" name="description" class="form-control ticket_form" rows="4" cols="50" placeholder="Explain your issue in detail."></textarea>                                </div>
-                                <button type="submit" class="btn btn-primary m-2 btn-lg">Submit</button>
+                                    <textarea type="text" name="description" class="form-control ticket_form" rows="4" cols="50" placeholder="Explain your issue in detail."></textarea>
+                                </div>
+                                <button class="btn btn-primary" onclick="history.back()">Go Back</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </form>
                         </div>
                     </div>

@@ -1,6 +1,50 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
     <div class="pt-5">
-
     </div>
+    <section id="view-ticket" class="">
+        <div id="cover-caption">
+            <div class="container shadow-lg">
+                <div class="row text-white ">
+                    <div class=" col-md-10 col-sm-6 mx-auto text-center form p-4">
+                        <h1 class="display-4 py-2 text-center text-bold ">{{ page_heading }}</h1>
+                        <div class="px-2 mt-5 ">
+                            <table class="searchable sortable">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Priority</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                    {% if viewOption == 'all' %}
+                                    <th>Raised By</th>
+                                    {% endif %}
+                                </tr>
+                                {% for ticket in tickets %}
+                                    <tr>
+                                        <td>{{ ticket['id'] }}</td>
+                                        <td>{{ ticket['title'] }}</td>
+                                        <td>{{ ticket['category'] }}</td>
+                                        <td>{{ ticket['priority'] }}</td>
+                                        <td>{{ ticket['status'] }}</td>
+                                        <td>
+                                            <form method="POST" action="view_ticket/{{ ticket['id'] }}">
+                                                <button type="submit" class="btn btn-primary">View</button>
+                                            </form>
+                                        </td>
+                                        {% if viewOption == 'all' %}
+
+                                        <td>{{ ticket['username'] }}</td>
+                                        {% endif %}
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                            <button class="btn btn-primary mt-5" onclick="history.back()">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

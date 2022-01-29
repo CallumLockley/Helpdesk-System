@@ -89,6 +89,7 @@ class DatabaseWrapper
 
         return $row['password'];
     }
+
     //Update password
     public function updatePassword($userId, $new_hashed_password)
     {
@@ -142,11 +143,70 @@ class DatabaseWrapper
     }
 
     //Get all tickets
+    public function getAllTickets()
+    {
+        try{
+        $connect = $this->openConnection();
+        $query = "SELECT tickets.*, users.username FROM tickets, users WHERE tickets.user_id = users.userId and tickets.status = 'Open' ORDER BY tickets.created ASC;  ";
+        $statement = $connect->prepare($query);
+        $statement->execute();
+        $tickets = $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+    catch(PDOException $error)
+    {
+        die();
+    }
+        return $tickets;
+
+    }
 
     //Get all tickets by given user
+    public function getUsersTickets($userId)
+    {
+        try{
+            $connect = $this->openConnection();
+            $query = "select * from tickets where user_id = :user_id ORDER BY created ASC;  ";
+            $statement = $connect->prepare($query);
+            $statement->bindParam(':user_id', $userId);
+            $statement->execute();
+            $tickets = $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
+        catch(PDOException $error)
+        {
+        die();
+        }
+        return $tickets;
+    }
 
     //Get amount of tickets
+    public function getAmountTickets()
+    {
+        try{
+            $connect = $this->openConnection();
+            $query = "select * from tickets";
+            $statement = $connect->query($query);
+            $count = $statement->rowCount();
+        }
+        catch(PDOException $error)
+        {
+            die();
+        }
+        return $count;
+    }
 
     //Get amount of open tickets
-
+    public function getAmountTicketsOpen()
+    {
+        try{
+            $connect = $this->openConnection();
+            $query = "select * from tickets where status = 'open'";
+            $statement = $connect->query($query);
+            $count = $statement->rowCount();
+        }
+        catch(PDOException $error)
+        {
+            die();
+        }
+        return $count;
+    }
 }

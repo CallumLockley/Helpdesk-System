@@ -1,16 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+/* View Tickets */
+table {
+    justify-content: center;
+    width: 100%;
+}
+th {
+    background-color: #d3d3d3;
+
+    color: black;
+}
+
+th {
+    padding: 8px;
+}
+td {
+    margin: 0;
+    padding: 0.2em;
+}
+
+tr:nth-child(even){
+    background-color: #ffffff;
+    color: black;
+}
+
 *{
-    font-family: "Montserrat" !important;
+    font-family: "Ubuntu", sans-serif;
     font-weight: normal;
 }
 
 body{
     margin:0;
-    background: lightgrey !important;
-    overflow: hidden;
+    background-color: #d3d3d3 !important;
+    overflow: auto;
 }
 footer {
     text-align: center;
-    margin-top: 10%;
+    margin: 2em;
     padding: 3px;
 }
 .ft .content {
@@ -28,10 +53,6 @@ footer {
 .ft {
     font-size: 15px;
     background-color: #000;
-}
-
-button  {
-    min-width: 100px !important;
 }
 
  /*NavBar*/
@@ -98,14 +119,12 @@ ticket_form{
     width: 100%;
     position: relative;
     z-index: 1;
-    background: lightgrey !important;
 }
 
 #cover-caption {
     width: 100%;
     position: relative;
     z-index: 1;
-    background: lightgrey !important;
 }
 
 /* only used for background overlay not needed for centering */

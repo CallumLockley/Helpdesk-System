@@ -16,6 +16,7 @@ require 'routes/dashboard/createTicket/process_ticket.php';
 
 require 'routes/dashboard/viewTickets/view_tickets.php';
 require 'routes/dashboard/viewAllTickets/view_all_tickets.php';
+require 'routes/dashboard/viewTickets/view_specific.php';
 
 require 'routes/dashboard/settings/settings.php';
 require 'routes/dashboard/settings/update_password.php';
