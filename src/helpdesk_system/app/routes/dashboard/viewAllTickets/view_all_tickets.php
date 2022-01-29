@@ -3,14 +3,11 @@
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
-$app->POST('/view_all',
-    function(Request $request, Response $response) use ($app){
+$app->POST('/view_all', function(Request $request, Response $response) use ($app){
 
         $database = $app->getContainer()->get('database');
-        $user_id = $_SESSION['user_id'];
 
         $tickets = $database->getAllTickets();
-        var_dump($tickets);
 
         $view = $app->getContainer()->get('view');
         $view->render($response,

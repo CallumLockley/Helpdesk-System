@@ -10,7 +10,6 @@ $app->POST('/view',
         $user_id = $_SESSION['user_id'];
 
         $tickets = $database->getUsersTickets($user_id);
-        var_dump($tickets);
 
         $view = $app->getContainer()->get('view');
         $view->render($response,
