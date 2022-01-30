@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
 /* View Tickets */
 table {
     justify-content: center;
@@ -30,9 +31,12 @@ tr:nth-child(even){
 
 body{
     margin:0;
-    background-color: #d3d3d3 !important;
+    color: white;
+    background-color: #d3d3d3;
     overflow: auto;
 }
+
+
 footer {
     text-align: center;
     margin: 2em;
@@ -97,11 +101,12 @@ ticket_form{
 
 #login {
     background-size: cover;
-    height: 100%;
+    height: 50%;
     text-align: center;
     display: flex;
     align-items: center;
     position: relative;
+    justify-content: center;
 }
 
 #options{

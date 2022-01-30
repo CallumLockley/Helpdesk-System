@@ -178,6 +178,26 @@ class DatabaseWrapper
         return $tickets;
     }
 
+    //Get specific ticket
+    public function getSpecificTicket($ticketId)
+    {
+        try{
+            $connect = $this->openConnection();
+            $query = "select * from tickets where id = :ticketId;";
+            $statement = $connect->prepare($query);
+            $statement->bindParam(':ticketId', $ticketId);
+            $statement->execute();
+            $tickets = $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
+        catch(PDOException $error)
+        {
+            die();
+        }
+        return $tickets;
+
+    }
+
+
     //Get amount of tickets
     public function getAmountTickets()
     {
