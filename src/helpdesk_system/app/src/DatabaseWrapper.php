@@ -194,7 +194,22 @@ class DatabaseWrapper
             die();
         }
         return $tickets;
+    }
 
+    public function getTicketsComment($ticketId)
+    {
+        try{
+            $connect = $this->openConnection();
+            $query = "select comments.*, users.username from comments, users where comments.ticket_id = :ticket_id ORDER BY comments.created ASC";
+            $statement = $connect->prepare($query);
+            $statement->bindParam(':ticket_id', $ticketId);
+            $statement->execute();
+            $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
+        }  catch(PDOException $error)
+        {
+            die();
+        }
+        return $comments;
     }
 
 

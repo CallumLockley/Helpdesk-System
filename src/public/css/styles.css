@@ -24,6 +24,7 @@ tr:nth-child(even){
     color: black;
 }
 
+
 *{
     font-family: "Ubuntu", sans-serif;
     font-weight: normal;
@@ -35,7 +36,6 @@ body{
     background-color: #d3d3d3;
     overflow: auto;
 }
-
 
 footer {
     text-align: center;

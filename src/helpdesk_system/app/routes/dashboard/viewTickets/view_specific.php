@@ -12,6 +12,14 @@ $app->POST('/view_ticket/{id}',     function(Request $request, Response $respons
     }else{
         $database = $app->getContainer()->get('database');
         $ticket = $database->getSpecificTicket($id);
+        $comments = $database->getTicketsComment($ticket[0]['id']);
+        if(!empty($comments))
+        {
+            var_dump('true');
+        }else
+        {
+            var_dump('falsse');
+        }
 
         $view = $app->getContainer()->get('view');
         $view->render($response,
@@ -23,7 +31,7 @@ $app->POST('/view_ticket/{id}',     function(Request $request, Response $respons
                 'dashboard_route' => URL_root . '/dashboard',
                 'username' => $_SESSION['username'],
                 'permission' => $_SESSION['userPerms'],
-                'tickets' => $id
+                'ticket' => $ticket[0],
             ]);
     }
 
