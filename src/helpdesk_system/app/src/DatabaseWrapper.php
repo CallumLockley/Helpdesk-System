@@ -196,6 +196,7 @@ class DatabaseWrapper
         return $tickets;
     }
 
+    //Comments
     public function getTicketsComment($ticketId)
     {
         try{
@@ -212,6 +213,26 @@ class DatabaseWrapper
         return $comments;
     }
 
+    public function addNewComment($ticketId, $userId, $message)
+    {
+        try{
+            $connect = $this->openConnection();
+            $query = "INSERT INTO comments(ticket_id, user_id, message) VALUES(:ticket_id, :user_id, :message)";
+            $statement = $connect->prepare($query);
+            $statement->bindValue('ticket_id', $ticketId);
+            $statement->bindValue('user_id', $userId);
+            $statement->bindValue('message', $message);
+            $insert = $statement->execute();
+
+            if($insert){
+              $result = true;
+            }
+        }catch (PDOException $error)
+        {
+            die();
+        }
+        return $result;
+    }
 
     //Get amount of tickets
     public function getAmountTickets()

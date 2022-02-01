@@ -15,6 +15,8 @@ $app->POST('/view_ticket/{id}',     function(Request $request, Response $respons
         $comments = $database->getTicketsComment($ticket[0]['id']);
         if(!empty($comments))
         {
+            var_dump($comments);
+
             var_dump('true');
         }else
         {
@@ -32,6 +34,7 @@ $app->POST('/view_ticket/{id}',     function(Request $request, Response $respons
                 'username' => $_SESSION['username'],
                 'permission' => $_SESSION['userPerms'],
                 'ticket' => $ticket[0],
+                'comments' => $comments
             ]);
     }
 

@@ -23,14 +23,19 @@
                             </tr>
                         </table>
                         <hr class="mt-4">
-                        <h2 class="">Description:</h2>
+                        <h3 class="">Description:</h3>
                         <article class="fsize-20">{{ ticket['description'] }}</article>
                         <hr class="mt-4">
-                        <h2>Comments</h2>
+                        <h3>New Comment</h3>
                         <textarea type="text" name="comment_message" class="form-control comment_form" rows="2" cols="50" placeholder="Add a new comment."></textarea>
                         <button class="btn btn-primary mt-1 mb-1">Add Comment</button>
                         <hr>
-
+                        {% if comments is not empty %}
+                            <h3>Comments</h3>
+                            {% for comment in comments %}
+                                <p>{{ comment.message }}</p>
+                            {% endfor %}
+                        {% endif %}
                         <div class="btn-group">
                             <button class="btn btn-primary" onclick="history.back()">Return to Tickets</button>
                             <button class="btn ml-5 btn-primary">Resolve</button>
