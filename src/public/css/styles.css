@@ -100,12 +100,9 @@ ticket_form{
 }
 
 #login {
+    padding-top: 12%;
+    min-height: 100px;
     background-size: cover;
-    height: 50%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    position: relative;
     justify-content: center;
 }
 
