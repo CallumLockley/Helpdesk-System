@@ -83,10 +83,7 @@ class DatabaseWrapper
             var_dump($error->getMessage());
             die();
         }
-
         $row = $statement->fetch(PDO::FETCH_ASSOC);
-
-
         return $row['password'];
     }
 

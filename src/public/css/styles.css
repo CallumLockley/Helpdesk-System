@@ -37,6 +37,11 @@ body{
     overflow: auto;
 }
 
+option {
+    font-size: 50px;
+}
+
+
 footer {
     text-align: center;
     margin: 2em;
@@ -89,6 +94,10 @@ footer {
 /*Ticket Form*/
 ticket_form{
     max-width: 200px;
+}
+
+.fsize-15{
+    font-size: 15px
 }
 
 .fsize-20{

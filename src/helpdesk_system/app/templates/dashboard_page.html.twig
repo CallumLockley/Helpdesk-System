@@ -4,7 +4,7 @@
     <section id="dashboard">
         <div class="container shadow-lg">
             <div class="row text-white ">
-                <h1 class="display-4 text-center">Select an action...</h1>
+                <h1 class="display-4 p-4 text-center">Select an action...</h1>
                 <div class="btn-group">
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mx-auto text-center form">
                         <div class="px-2 mt-5 ">
@@ -13,7 +13,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 mx-auto text-center form pb-3">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mx-auto text-center form pb-3">
                         <div class="px-2 mt-5 ">
                             <form method="POST" action="view" class="justify-content-center">
                                 <button type="submit" class="btn btn-primary m-2 btn-lg w-100">View Your Tickets</button>
@@ -22,9 +22,9 @@
                     </div>
                 </div>
             </div>
-            <div class="row text-white ">
+            <div class="row text-white mx-auto">
                 <div class="btn-group">
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 mx-auto text-center form ">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-3 text-center mx-auto form ">
                     <div class="px-2 mt-5">
                         <form method="POST" action="settings" class="justify-content-center pb-3">
                             <button type="submit" class="btn btn-primary m-2 btn-lg w-100">Settings | Update Password</button>
@@ -33,7 +33,7 @@
                 </div>
 {#                Only visible to support + admin users#}
                     {% if permission == 1 or permission == 2 %}
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 mx-auto text-center form pb-3">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 text-center mx-auto form pb-3">
                             <div class="px-2 mt-5 ">
                                 <form method="POST" action="view_all" class="justify-content-center">
                                     <button type="submit" class="btn btn-primary m-2 btn-lg w-100">View All Tickets</button>
@@ -44,7 +44,7 @@
 
 {#                    Only visible to admin users#}
                 {% if permission == 2 %}
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-8 mx-auto text-center form pb-3">
+                    <div class="col-xl-4 col-lg-4 col-md-2 col-sm-3 text-center mx-auto form pb-3">
                         <div class="px-2 mt-5 ">
                             <form method="POST" action="admin" class="justify-content-center">
                                 <button type="submit" class="btn btn-primary m-2 btn-lg w-100">Admin Panel</button>

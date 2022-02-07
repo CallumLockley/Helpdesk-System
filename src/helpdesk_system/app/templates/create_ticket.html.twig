@@ -4,22 +4,22 @@
     </div>
     <section id="create-ticket" class="">
         <div id="cover-caption">
-            <div class="container shadow-lg">
+            <div class="container">
                 <div class="row text-white ">
                     <div class=" col-md-10 col-sm-6 mx-auto text-center form p-4">
-                        <h1 class="display-4 py-2 text-center text-bold ">Create a ticket</h1>
-                        <div class="px-2 mt-5">
+                        <h1 class="display-4 text-center">Create a ticket</h1>
+                        <div class="mt-5">
                             <form method="POST" action="{{ create_ticket_route }}" class="justify-content-center">
-                                <div class="m-4 form-group">
+                                <div class="m-2 pb-3 form-group">
                                     <label class="sr-only fsize-30" for="priority">Priority:</label>
-                                    <select class="pr-5 ml-4" name="priority">
+                                    <select class="pr-5 ml-4 fsize-20" name="priority">
                                         {% for priority in ticket_priorities %}
-                                            <option value={{priority}}>{{ priority }}</option>
+                                            <option class="fsize-20" value={{priority}}>{{ priority }}</option>
                                         {% endfor %}
                                     </select>
                                     <span>&nbsp;&nbsp;&nbsp;</span>
-                                    <label class="sr-only fsize-30" for="area">Category:</label>
-                                    <select class="" name="category">
+                                    <label class="sr-only fsize-30" for="category">Category:</label>
+                                    <select class="fsize-20" name="category">
                                         {% for category in ticket_categories %}
                                             <option class="fsize-20" value={{category}}>{{ category }}</option>
                                         {% endfor %}
