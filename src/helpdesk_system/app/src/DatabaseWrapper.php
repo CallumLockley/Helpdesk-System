@@ -111,6 +111,30 @@ class DatabaseWrapper
         return $result;
     }
 
+    public function newComment($ticketId, $userId, $message)
+    {
+        $result = false;
+        try{
+            $connect = $this->openConnection();
+            $query = "INSERT INTO comments(ticketId, userId, message) VALUES(:ticket_id, :user_id, :message)";
+            $statement = $connect->prepare($query);
+            $statement->bindValue('ticket_id', $ticketId);
+            $statement->bindValue('user_id', $userId);
+            $statement->bindValue('message', $message);
+            $insert = $statement->execute();
+
+            if($insert){
+                $result = true;
+            }
+        }catch (PDOException $error)
+        {
+            var_dump($error);
+            die();
+        }
+        return $result;
+    }
+
+
     //Create Ticket
     public function createTicket($userId, $ticket_content)
     {
@@ -119,12 +143,12 @@ class DatabaseWrapper
             $connect = $this->openConnection();
             $query = "INSERT INTO tickets(user_id, title, priority, category, description) VALUES(:user_id, :title, :priority, :category, :description)";
             $statement = $connect->prepare($query);
+            var_dump($userId);
             $statement->bindValue('user_id', $userId);
             $statement->bindValue('title', $ticket_content['title']);
             $statement->bindValue('priority', $ticket_content['priority']);
             $statement->bindValue('category', $ticket_content['category']);
             $statement->bindValue('description', $ticket_content['description']);
-
             $insert = $statement->execute();
 
             if($insert)
@@ -198,11 +222,12 @@ class DatabaseWrapper
     {
         try{
             $connect = $this->openConnection();
-            $query = "select comments.*, users.username from comments, users where comments.ticket_id = :ticket_id ORDER BY comments.created ASC";
+            $query = "select comments.message, users.username from comments INNER JOIN users on comments.userId=users.userId where comments.ticketId = :ticket_id ORDER BY comments.created ASC; ";
             $statement = $connect->prepare($query);
             $statement->bindParam(':ticket_id', $ticketId);
             $statement->execute();
             $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
+
         }  catch(PDOException $error)
         {
             die();
@@ -210,26 +235,6 @@ class DatabaseWrapper
         return $comments;
     }
 
-    public function addNewComment($ticketId, $userId, $message)
-    {
-        try{
-            $connect = $this->openConnection();
-            $query = "INSERT INTO comments(ticket_id, user_id, message) VALUES(:ticket_id, :user_id, :message)";
-            $statement = $connect->prepare($query);
-            $statement->bindValue('ticket_id', $ticketId);
-            $statement->bindValue('user_id', $userId);
-            $statement->bindValue('message', $message);
-            $insert = $statement->execute();
-
-            if($insert){
-              $result = true;
-            }
-        }catch (PDOException $error)
-        {
-            die();
-        }
-        return $result;
-    }
 
     //Get amount of tickets
     public function getAmountTickets()

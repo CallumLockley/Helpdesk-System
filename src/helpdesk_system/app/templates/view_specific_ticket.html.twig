@@ -35,7 +35,11 @@
                         {% if comments is not empty %}
                             <h3>Comments</h3>
                             {% for comment in comments %}
-                                <p>{{ comment.message }}</p>
+                                <div class="container row">
+                                    <p>{{ comment.message }}</p>
+                                    <p>{{ comment.username }}</p>
+                                </div>
+                                <hr>
                             {% endfor %}
                         {% endif %}
                         <div class="btn-group">
