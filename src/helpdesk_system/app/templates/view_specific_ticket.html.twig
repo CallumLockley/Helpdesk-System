@@ -8,9 +8,14 @@
             <div class="container shadow-lg">
                 <div class="row text-white ">
                     <div class=" col-md-10 col-sm-6 mx-auto text-center p-4">
-                        <h1 class="display-4 py-2 text-center">{{ page_heading }}</h1>
+                        <div id="ticketHeading">
+                            <h1 class="inline display-6 text-center">{{ page_heading }}</h1>
+                            <form class="resolve">
+                                <button class="inline btn btn-primary">Resolve</button>
+                            </form>
+                        </div>
                         <hr>
-                        <table class="">
+                        <table>
                             <tr>
                                 <th>Category</th>
                                 <th>Priority</th>
@@ -24,7 +29,7 @@
                         </table>
                         <hr class="mt-4">
                         <h3 class="">Description:</h3>
-                        <article class="fsize-20">{{ ticket['description'] }}</article>
+                        <article class="fsize-15">{{ ticket['description'] }}</article>
                         <hr class="mt-4">
                         <form method="POST" action="{{ new_comment_route }}" >
                             <h3>New Comment</h3>
@@ -35,16 +40,18 @@
                         {% if comments is not empty %}
                             <h3>Comments</h3>
                             {% for comment in comments %}
-                                <div class="container row">
+                                <div class="comment-container">
                                     <p>{{ comment.message }}</p>
-                                    <p>{{ comment.username }}</p>
+                                    <p class="author">Posted by: {{ comment.username }}</p>
+                                    <p class="time">{{ comment.created }}</p>
                                 </div>
-                                <hr>
+                                <hr class="comments">
+
+
                             {% endfor %}
                         {% endif %}
                         <div class="btn-group">
                             <button class="btn btn-primary" onclick="history.back()">Return to Tickets</button>
-                            <button class="btn ml-5 btn-primary">Resolve</button>
                         </div>
 
                     </div>

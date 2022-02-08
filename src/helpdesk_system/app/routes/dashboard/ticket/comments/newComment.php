@@ -10,9 +10,6 @@ $app->POST('/view_ticket/{id}/new_comment', function (Request $request, Response
     $ticketId = $request->getAttribute('id');
     $userId = $_SESSION['user_id'];
     $database = $app->getContainer()->get('database');
-    var_dump($userId);
-    var_dump($ticketId);
-    var_dump($comment);
     $database->newComment($ticketId, $userId, $comment);
-    return $response->withRedirect(URL_root . '/dashboard');
+    return $response->withRedirect(URL_root . '/view_ticket/'.$ticketId);
 });

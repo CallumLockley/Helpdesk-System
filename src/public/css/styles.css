@@ -2,7 +2,6 @@
 
 /* View Tickets */
 table {
-    justify-content: center;
     width: 100%;
 }
 th {
@@ -79,6 +78,7 @@ footer {
     background-color: rgba(0,0,0,0.7);
 }
 
+
 /*Dashboard*/
 #dashboard{
     padding-top: 2.5rem;
@@ -95,19 +95,42 @@ footer {
 ticket_form{
     max-width: 200px;
 }
-
 .fsize-15{
     font-size: 15px
 }
-
 .fsize-20{
     font-size: 20px
 }
-
 .fsize-30{
     font-size: 30px
 }
 
+button.inline{
+    padding: 0.2rem;
+    display: inline;
+}
+
+/*Ticket Comments*/
+div.comment-container{
+    padding-top: 0.5em;
+    background-color: rgba(255,255,255,0.2);
+    max-width: 100%;
+}
+hr.comments{
+    margin: 0;
+    color: rgba(0,0,0,0);
+}
+p.time{
+    padding-right: 2em;
+    text-align: right;
+    margin-top: 0;
+}
+p.author{
+    margin: 0;
+
+}
+
+/*Sections*/
 #login {
     background-size: cover;
     height: 50%;
@@ -117,7 +140,6 @@ ticket_form{
     position: relative;
     justify-content: center;
 }
-
 #options{
     min-height: 75%;
     background-size: cover;
@@ -127,21 +149,17 @@ ticket_form{
     align-items: center;
     position: relative;
 }
-
 #options-area{
     min-width: 75%;
     width: 100%;
     position: relative;
     z-index: 1;
 }
-
 #cover-caption {
     width: 100%;
     position: relative;
     z-index: 1;
 }
-
-/* only used for background overlay not needed for centering */
 #login .form:before {
     content: '';
     height: 100%;

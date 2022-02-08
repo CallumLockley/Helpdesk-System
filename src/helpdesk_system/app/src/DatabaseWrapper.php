@@ -64,7 +64,7 @@ class DatabaseWrapper
         return $password_result;
     }
 
-    //Get User Current Password
+    //Settings - Update Password
     public function getUserPassword($userId)
     {
         try{
@@ -87,7 +87,6 @@ class DatabaseWrapper
         return $row['password'];
     }
 
-    //Update password
     public function updatePassword($userId, $new_hashed_password)
     {
         $result = false;
@@ -111,31 +110,7 @@ class DatabaseWrapper
         return $result;
     }
 
-    public function newComment($ticketId, $userId, $message)
-    {
-        $result = false;
-        try{
-            $connect = $this->openConnection();
-            $query = "INSERT INTO comments(ticketId, userId, message) VALUES(:ticket_id, :user_id, :message)";
-            $statement = $connect->prepare($query);
-            $statement->bindValue('ticket_id', $ticketId);
-            $statement->bindValue('user_id', $userId);
-            $statement->bindValue('message', $message);
-            $insert = $statement->execute();
-
-            if($insert){
-                $result = true;
-            }
-        }catch (PDOException $error)
-        {
-            var_dump($error);
-            die();
-        }
-        return $result;
-    }
-
-
-    //Create Ticket
+    //Ticket
     public function createTicket($userId, $ticket_content)
     {
         $result = false;
@@ -162,8 +137,6 @@ class DatabaseWrapper
         return $result;
 
     }
-
-    //Get all tickets
     public function getAllTickets()
     {
         try{
@@ -180,8 +153,6 @@ class DatabaseWrapper
         return $tickets;
 
     }
-
-    //Get all tickets by given user
     public function getUsersTickets($userId)
     {
         try{
@@ -198,8 +169,6 @@ class DatabaseWrapper
         }
         return $tickets;
     }
-
-    //Get specific ticket
     public function getSpecificTicket($ticketId)
     {
         try{
@@ -217,12 +186,31 @@ class DatabaseWrapper
         return $tickets;
     }
 
+    public function resolveTicket($ticketId){
+        $result = false;
+        try{
+            $connect = $this->openConnection();
+            $query = "UPDATE tickets SET status = 'closed' WHERE id = :ticket_id;";
+            $statement = $connect->prepare($query);
+            $statement->bindParam(':ticket_id', $ticketId);
+            $updated = $statement->execute();
+            if($updated) {
+                $result = true;
+            }
+        }catch(PDOException $error)
+        {
+            var_dump($error->getMessage());
+            die();
+        }
+        return $result;
+    }
+
     //Comments
     public function getTicketsComment($ticketId)
     {
         try{
             $connect = $this->openConnection();
-            $query = "select comments.message, users.username from comments INNER JOIN users on comments.userId=users.userId where comments.ticketId = :ticket_id ORDER BY comments.created ASC; ";
+            $query = "select comments.message, comments.created, users.username from comments INNER JOIN users on comments.userId=users.userId where comments.ticketId = :ticket_id ORDER BY comments.created DESC; ";
             $statement = $connect->prepare($query);
             $statement->bindParam(':ticket_id', $ticketId);
             $statement->execute();
@@ -234,9 +222,30 @@ class DatabaseWrapper
         }
         return $comments;
     }
+    public function newComment($ticketId, $userId, $message)
+    {
+        $result = false;
+        try{
+            $connect = $this->openConnection();
+            $query = "INSERT INTO comments(ticketId, userId, message) VALUES(:ticket_id, :user_id, :message)";
+            $statement = $connect->prepare($query);
+            $statement->bindValue('ticket_id', $ticketId);
+            $statement->bindValue('user_id', $userId);
+            $statement->bindValue('message', $message);
+            $insert = $statement->execute();
 
+            if($insert){
+                $result = true;
+            }
+        }catch (PDOException $error)
+        {
+            var_dump($error);
+            die();
+        }
+        return $result;
+    }
 
-    //Get amount of tickets
+    //Admin Panel
     public function getAmountTickets()
     {
         try{
@@ -251,8 +260,6 @@ class DatabaseWrapper
         }
         return $count;
     }
-
-    //Get amount of open tickets
     public function getAmountTicketsOpen()
     {
         try{
