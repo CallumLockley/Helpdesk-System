@@ -9,7 +9,7 @@
                         <div id="ticketHeading">
                             <h1 class="inline display-6 text-center">{{ page_heading }}</h1>
                             <form method="post" action="{{ resolve_ticket_route }}">
-                                <button type="submit" class="btn-raised inline btn btn-primary">Resolve</button>
+                                <button type="submit" onClick='return confirmResolveSubmit()' class="btn-raised inline btn btn-primary">Resolve</button>
                             </form>
                         </div>
                         <hr>
@@ -59,4 +59,14 @@
             </div>
         </div>
     </section>
+    <script>
+        function confirmResolveSubmit()
+        {
+            let agree = confirm("Are you sure you want to resolve this ticket?");
+            if (agree)
+                return true ;
+            else
+                return false ;
+        }
+    </script>
 {% endblock %}
