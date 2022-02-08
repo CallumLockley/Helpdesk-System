@@ -25,6 +25,7 @@ $app->POST('/view_ticket/{id}',     function(Request $request, Response $respons
                 'permission' => $_SESSION['userPerms'],
                 'ticket' => $ticket[0],
                 'new_comment_route' => URL_root . '/view_ticket/'.$id.'/new_comment',
+                'resolve_ticket_route' => URL_root . '/view_ticket/' . $id . '/resolve',
                 'comments' => $comments
             ]);
     }
@@ -49,6 +50,7 @@ $app->GET('/view_ticket/{id}',     function(Request $request, Response $response
             'permission' => $_SESSION['userPerms'],
             'ticket' => $ticket[0],
             'new_comment_route' => URL_root . '/view_ticket/' . $id . '/new_comment',
+            'resolve_ticket_route' => URL_root . '/view_ticket/' . $id . '/resolve',
             'comments' => $comments
         ]);
 });

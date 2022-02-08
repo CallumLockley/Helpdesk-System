@@ -8,8 +8,8 @@
                     <div class="text-center p-4">
                         <div id="ticketHeading">
                             <h1 class="inline display-6 text-center">{{ page_heading }}</h1>
-                            <form class="resolve">
-                                <button class="inline btn btn-primary">Resolve</button>
+                            <form method="post" action="{{ resolve_ticket_route }}">
+                                <button type="submit" onClick='return confirmResolveSubmit()' class="btn-raised inline btn btn-primary">Resolve</button>
                             </form>
                         </div>
                         <hr>
@@ -26,15 +26,15 @@
                             </tr>
                         </table>
                         <hr class="mt-4">
-                        <h3 class="">Description:</h3>
+                        <h3>Description:</h3>
                         <article class="fsize-15">{{ ticket['description'] }}</article>
                         <hr class="mt-4">
-                        <form method="POST" action="{{ new_comment_route }}" >
+                        <form method="post" action="{{ new_comment_route }}" >
                             <h3>New Comment</h3>
                             <div class="justified">
                                 <textarea type="text" name="message" class="form-control comment_form" rows="2" cols="50" placeholder="Add a new comment."></textarea>
                             </div>
-                            <button type="SUBMIT" class="btn btn-primary mt-1 mb-1">Add Comment</button>
+                            <button type="submit" class="btn btn-primary mt-1 mb-1">Add Comment</button>
                         </form>
                         <hr>
                         {% if comments is not empty %}
@@ -59,4 +59,14 @@
             </div>
         </div>
     </section>
+    <script>
+        function confirmResolveSubmit()
+        {
+            let agree = confirm("Are you sure you want to resolve this ticket?");
+            if (agree)
+                return true ;
+            else
+                return false ;
+        }
+    </script>
 {% endblock %}

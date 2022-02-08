@@ -64,6 +64,12 @@ footer {
     background-color: #000;
 }
 
+
+.btn-raised:not([disabled]):hover {
+    background-color: red;
+    border-color:red;
+}
+
  /*NavBar*/
 .navbar .navbar-brand{
     margin-left:10% !important;
