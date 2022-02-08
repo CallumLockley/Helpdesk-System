@@ -9,6 +9,5 @@ $app->POST('/view_ticket/{id}/resolve', function (Request $request, Response $re
     $ticketId = $request->getAttribute('id');
     $database = $app->getContainer()->get('database');
     $database->resolveTicket($ticketId);
-    $_SESSION['resolved'] = true;
     return $response->withRedirect(URL_root . '/dashboard');
 });
