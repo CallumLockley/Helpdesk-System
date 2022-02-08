@@ -5,7 +5,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 $app->GET('/dashboard',
     function(Request $request, Response $response) use ($app){
-
+        var_dump($_SESSION['resolved']);
     $this->database->openConnection();
     dashboard($app, $response);
 

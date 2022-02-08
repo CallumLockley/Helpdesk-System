@@ -157,7 +157,7 @@ class DatabaseWrapper
     {
         try{
             $connect = $this->openConnection();
-            $query = "select * from tickets where user_id = :user_id ORDER BY created ASC;  ";
+            $query = "select * from tickets where user_id = :user_id ORDER BY status DESC;  ";
             $statement = $connect->prepare($query);
             $statement->bindParam(':user_id', $userId);
             $statement->execute();
@@ -185,12 +185,11 @@ class DatabaseWrapper
         }
         return $tickets;
     }
-
     public function resolveTicket($ticketId){
         $result = false;
         try{
             $connect = $this->openConnection();
-            $query = "UPDATE tickets SET status = 'closed' WHERE id = :ticket_id;";
+            $query = "UPDATE tickets SET status = 'Closed' WHERE id = :ticket_id;";
             $statement = $connect->prepare($query);
             $statement->bindParam(':ticket_id', $ticketId);
             $updated = $statement->execute();
