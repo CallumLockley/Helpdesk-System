@@ -43,6 +43,7 @@ option {
 
 
 footer {
+    overflow: auto;
     text-align: center;
     margin: 2em;
     padding: 3px;
