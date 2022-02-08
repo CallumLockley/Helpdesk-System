@@ -1,13 +1,11 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-    <div class="pt-5">
-    </div>
-
+    <div class="pt-5"></div>
     <section id="view-specific-ticket" class="">
         <div id="cover-caption">
-            <div class="container shadow-lg">
-                <div class="row text-white ">
-                    <div class=" col-md-10 col-sm-6 mx-auto text-center p-4">
+            <div class="container">
+                <div class="row text-white">
+                    <div class="text-center p-4">
                         <div id="ticketHeading">
                             <h1 class="inline display-6 text-center">{{ page_heading }}</h1>
                             <form class="resolve">
@@ -33,7 +31,9 @@
                         <hr class="mt-4">
                         <form method="POST" action="{{ new_comment_route }}" >
                             <h3>New Comment</h3>
-                            <textarea type="text" name="message" class="form-control comment_form" rows="2" cols="50" placeholder="Add a new comment."></textarea>
+                            <div class="justified">
+                                <textarea type="text" name="message" class="form-control comment_form" rows="2" cols="50" placeholder="Add a new comment."></textarea>
+                            </div>
                             <button type="SUBMIT" class="btn btn-primary mt-1 mb-1">Add Comment</button>
                         </form>
                         <hr>

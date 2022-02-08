@@ -33,6 +33,7 @@ body{
     margin:0;
     color: white;
     background-color: #d3d3d3;
+
     overflow: auto;
 }
 
@@ -72,12 +73,16 @@ footer {
     background-color: rgba(0,0,0,0.7);
 }
 
+div.justified{
+    margin: auto;
+    display: block;
+    max-width: 75%;
+}
 
 /*Container*/
 .container{
     background-color: rgba(0,0,0,0.7);
 }
-
 
 /*Dashboard*/
 #dashboard{
