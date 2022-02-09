@@ -40,9 +40,15 @@ body{
 option {
     font-size: 50px;
 }
+p.error{
+    border-radius: 25px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 0, 0);
+}
 
 
 footer {
+    overflow: auto;
     text-align: center;
     margin: 2em;
     padding: 3px;

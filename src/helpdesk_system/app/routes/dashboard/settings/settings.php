@@ -6,20 +6,28 @@ use Psr\Http\Message\ResponseInterface as Response;
 $app->POST('/settings',
     function(Request $request, Response $response) use ($app){
 
-        settings($app, $response);
-
+        $view = $app->getContainer()->get('view');
+        $view->render($response,
+            'settings_update_password.html.twig',[
+                'page_heading_1' => APP_NAME,
+                'css_path' => CSS_PATH,
+                'dashboard_route' => URL_root . '/dashboard',
+                'username' => $_SESSION['username'],
+                'permission' => $_SESSION['userPerms'],
+                'error' => 0
+            ]);
     })->setName('settings');
 
-
-function settings($app, $response) : void {
-
-    $view = $app->getContainer()->get('view');
-    $view->render($response,
-        'settings_update_password.html.twig',[
-            'page_heading_1' => APP_NAME,
-            'css_path' => CSS_PATH,
-            'dashboard_route' => URL_root . '/dashboard',
-            'username' => $_SESSION['username'],
-            'permission' => $_SESSION['userPerms'],
-        ]);
-}
+$app->GET('/settings',
+    function(Request $request, Response $response) use ($app){
+        $view = $app->getContainer()->get('view');
+        $view->render($response,
+            'settings_update_password.html.twig',[
+                'page_heading_1' => APP_NAME,
+                'css_path' => CSS_PATH,
+                'dashboard_route' => URL_root . '/dashboard',
+                'username' => $_SESSION['username'],
+                'permission' => $_SESSION['userPerms'],
+                'error' => $_SESSION['updateError']
+            ]);
+    })->setName('settings');

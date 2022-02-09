@@ -28,7 +28,7 @@ class DatabaseWrapper
         }
     }
 
-    public function checkLoginDetails($username, $password)
+    public function checkLoginDetails($username)
     {
         $password_result = false;
         try{
@@ -45,23 +45,7 @@ class DatabaseWrapper
             var_dump($error->getMessage());
             die();
         }
-
-        $row = $statement->fetch(PDO::FETCH_ASSOC);
-
-        if (is_array($row))
-        {
-            if (password_verify($password, $row['password']))
-            {
-                session_reset();
-                $_SESSION['user_id'] = $row['userId'];
-                $_SESSION['username'] = $username;
-                $_SESSION['userPerms'] = $row['permission'];
-                $password_result = true;
-            }else{
-                $_SESSION['loginError'] = true;
-            }
-        }
-        return $password_result;
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
     //Settings - Update Password
@@ -69,21 +53,16 @@ class DatabaseWrapper
     {
         try{
             $connect = $this->openConnection();
-            $query = "SELECT password FROM users WHERE userId = :userId";
+            $query = "SELECT password FROM users WHERE userId = :user_id";
             $statement = $connect->prepare($query);
-            $statement->execute(
-                array(
-                    'userId' => $userId,
-
-                )
-            );
-            $result=true;
+            $statement->bindValue(':user_id', $userId);
+            $statement->execute();
+            $row = $statement->fetch(PDO::FETCH_ASSOC);
         }catch(PDOException $error)
         {
             var_dump($error->getMessage());
             die();
         }
-        $row = $statement->fetch(PDO::FETCH_ASSOC);
         return $row['password'];
     }
 

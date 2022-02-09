@@ -14,13 +14,40 @@ $app->post('/auth', function (Request $request, Response $response) use ($app) {
     $_SESSION['username'] = $validator->validateEmail($tainted_username);
 
     $database = $app->getContainer()->get('database');
-    $password = $database->checkLoginDetails($_SESSION['username'], $tainted_password);
+    $bcrypt = $app->getContainer()->get('bcryptWrapper');
+    $passwordData = $database->checkLoginDetails($_SESSION['username']);
 
-    if($password){
+
+    var_dump($bcrypt->generateHash('test'));
+    var_dump($passwordData['password']);
+    if(password_verify($tainted_password.BCRYPT_SALT, $passwordData['password']))
+    {
+        session_reset();
+        $_SESSION['user_id'] = $passwordData['userId'];
+        $_SESSION['username'] = $_SESSION['username'];
+        $_SESSION['userPerms'] = $passwordData['permission'];
+        $password_result = true;
         return  $response->withRedirect(URL_root . '/dashboard');
+
     }else{
         $_SESSION['loginError'] = true;
-        $result = $response->withRedirect(URL_root . '/');
-        return $result;
+        return $response->withRedirect(URL_root . '/');
     }
+//
+//
+//
+//        if (password_verify($password, $row['password']))
+//        {
+
+//        }else{
+//        }
+//    }
+//    return $password_result;
+//
+//    if($password){
+//    }else{
+//        $_SESSION['loginError'] = true;
+//        $result = $response->withRedirect(URL_root . '/');
+//        return $result;
+//    }
 });
