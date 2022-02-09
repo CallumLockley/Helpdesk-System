@@ -2,9 +2,9 @@
 
 This is a ticket handling system that is part of my undergraduate university degree made using PHP with Slim as the framework and Twig as a templating tool.
 
-## Authors
+## Author
 
-- [@CallumLockleyDev](https://github.com/CallumLockleyDev)
+- [@CallumLockley](https://github.com/CallumLockley)
 
 
 ## Dependency Versions
