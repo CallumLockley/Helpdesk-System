@@ -15,17 +15,19 @@ $app->post('/settings/update_password', function (Request $request, Response $re
     $hash = currentPassword($current,$database, $userId);
     $verified_password = verifying($password_first,$password_second, $app, $hash);
 
-//  if($verified_password)
-//  {
-//      if($database->updatePassword($userId, $verified_password))
-//      {
-//          return $response->withRedirect(URL_root . '/dashboard');
-//      }else{
-//          return $response->withRedirect(URL_root . '/settings');
-//      }
-//  }else{
-//       return $response->withRedirect(URL_root . '/settings');
-//  }
+  if($verified_password)
+  {
+      if($database->updatePassword($userId, $verified_password))
+      {
+          return $response->withRedirect(URL_root . '/dashboard');
+      }else{
+          $_SESSION['updateError'] = 1;
+          return $response->withRedirect(URL_root . '/settings');
+      }
+  }else{
+      $_SESSION['updateError'] = 1;
+       return $response->withRedirect(URL_root . '/settings');
+  }
 });
 
 function verifying($password_first, $password_second, $app, $current)
