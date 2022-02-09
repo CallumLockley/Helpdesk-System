@@ -9,7 +9,7 @@
                         <div id="ticketHeading">
                             <h1 class="inline display-6 text-center">{{ page_heading }}</h1>
                             <form method="post" action="{{ resolve_ticket_route }}">
-                                <button type="submit" onClick='return confirmResolveSubmit()' class="btn-raised inline btn btn-primary">Resolve</button>
+                                <button type="submit" onClick='return confirmResolveSubmit()' class="btn-raised inline btn btn-secondary">Resolve</button>
                             </form>
                         </div>
                         <hr>
@@ -34,7 +34,7 @@
                             <div class="justified">
                                 <textarea type="text" name="message" class="form-control comment_form" rows="2" cols="50" placeholder="Add a new comment."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary mt-1 mb-1">Add Comment</button>
+                            <button type="submit" class="btn btn-secondary mt-1 mb-1">Add Comment</button>
                         </form>
                         <hr>
                         {% if comments is not empty %}
@@ -46,14 +46,9 @@
                                     <p class="time">{{ comment.created }}</p>
                                 </div>
                                 <hr class="comments">
-
-
                             {% endfor %}
                         {% endif %}
-                        <div class="btn-group">
-                            <button class="btn btn-primary" onclick="history.back()">Return to Tickets</button>
-                        </div>
-
+                        <button class="btn btn-secondary" onclick="history.back()">Return to Tickets</button>
                     </div>
                 </div>
             </div>

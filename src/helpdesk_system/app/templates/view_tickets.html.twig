@@ -30,7 +30,7 @@
                                         <td>{{ ticket['status'] }}</td>
                                         <td>
                                             <form method="POST" action="view_ticket/{{ ticket['id'] }}">
-                                                <button type="submit" class="btn btn-primary">View</button>
+                                                <button type="submit" class="btn btn-secondary">View</button>
                                             </form>
                                         </td>
                                         {% if viewOption == 'all' %}
@@ -40,7 +40,7 @@
                                     </tr>
                                 {% endfor %}
                             </table>
-                            <button class="btn btn-primary mt-5" onclick="history.back()">Back</button>
+                            <button class="btn btn-secondary mt-5" onclick="history.back()">Back</button>
                         </div>
                     </div>
                 </div>

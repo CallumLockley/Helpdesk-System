@@ -1,4 +1,4 @@
-# De Montford University - Final Year Development Project - Helpdesk System
+# De Montfort University - Final Year Development Project - Helpdesk System
 
 This is a ticket handling system that is part of my undergraduate university degree made using PHP with Slim as the framework and Twig as a templating tool.
 
