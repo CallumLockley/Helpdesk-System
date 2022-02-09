@@ -39,10 +39,6 @@ function verifying($password_first, $password_second, $app, $current)
             $new_hash = hashPassword($app, $password_first);
             if(compareNewOld($new_hash, $current))
             {
-                //TODO
-                //Add updating of DB value
-                //Redirect to dashboard
-                //error message displayed if needed
                 return $new_hash;
             }else{
                 return false;
