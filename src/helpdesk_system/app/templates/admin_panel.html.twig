@@ -1,7 +1,51 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
-    <div class="pt-5">
+    <div class="pt-5">    </div>
+    <section id="admin">
+        <div class="container">
+            <div class="row text-white p-4 ">
+                <h1 class="display-4 py-2 pt-3 text-center">Admin Panel</h1>
+                <h4>Priority Tickets</h4>
+                <div class="head-wrapper">
+                    <div class="header">
+                        <h5>Low</h5>
+                        <h5>{{ pri_low }}</h5>
+                    </div>
+                    <div class="header">
+                        <h5>Medium</h5>
+                        <h5>{{ pri_medium }}</h5>
+                    </div>
+                    <div class="header">
+                        <h5>High</h5>
+                        <h5>{{ pri_high }}</h5>
+                    </div>
+                </div>
+                <hr>
+                <div class="wrapper">
+                    <div class="box a">
+                        <h5>Total tickets</h5>
+                        <h5 class="">{{ total_tickets }}</h5>
+                    </div>
+                    <div class="box b">
+                        <h5>Open tickets</h5>
+                        <h5 class="">{{ open_tickets }}</h5>
+                    </div>
+                    <div class="box c">
+                        <h5>Average Duration</h5>
+                        <h5 class="">{{ average_duration }}</h5>
+                    </div>
+                    <div class="box d">
+                        <h5>Common Category</h5>
+                        <h5 class="">{{ common_category }}</h5>
+                    </div>
+                </div>
+                <form class="pt-4">
+                    <button class="btn btn-secondary justify-content-center" onclick="history.back()">Back</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-    </div>
-    <h1>Admin</h1>
+
+
 {% endblock %}

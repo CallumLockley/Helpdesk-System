@@ -1,12 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
+/* Admin Panel */
+p.bg-light{
+    color:black;
+}
+
+.head-wrapper {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    justify-content: center;
+    grid-gap: 50px;
+}
+.header{
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 25px;
+    text-align: justify-all;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+    color: #de1b1b;
+    justify-content: space-evenly;
+    margin: 0;
+}
+.box {
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 25px;
+    text-align: center;
+    padding: 10px 6em;
+}
+.a {
+    grid-row: 2;
+    grid-column: 1 / 2;
+}
+.b {
+    grid-row: 2;
+    grid-column: 2 / 2 ;
+}
+.c {
+    grid-row: 3;
+    grid-column: 1/2;
+}
+.d {
+    grid-row: 3;
+    grid-column: 2/2;
+}
+
 /* View Tickets */
 table {
     width: 100%;
 }
 th {
     background-color: #d3d3d3;
-
     color: black;
 }
 
@@ -165,24 +214,27 @@ i {
 }
 
 /*Sections*/
+#admin{
+    min-height: 75%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+}
 #login {
-    background-size: cover;
     height: 50%;
     text-align: center;
     display: flex;
     align-items: center;
-    position: relative;
     justify-content: center;
 }
 #options{
     min-height: 75%;
-    background-size: cover;
     height: 100%;
     text-align: center;
     display: flex;
     align-items: center;
-    position: relative;
 }
+
 #options-area{
     min-width: 75%;
     width: 100%;

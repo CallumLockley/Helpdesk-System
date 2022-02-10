@@ -15,12 +15,12 @@
                     <div class="px-2 mt-5 ">
                         <form method="POST" action="auth" class="justify-content-center">
                             <div class="form-group">
-                                <label class="sr-only fsize-20">Username</label>
-                                <input type="email" name="username" class="form-control" required>
+                                <label class="sr-only fsize-20">Email</label>
+                                <input type="email" name="username" class="form-control"  placeholder="Email" required>
                             </div>
                             <div class="pt-4 pb-4 form-group">
                                 <label class="sr-only fsize-20">Password</label>
-                                <input type="password" name="password" class="form-control" >
+                                <input type="password" name="password"  placeholder="Password" class="form-control" >
                             </div>
                             {% if error == 1 %}
                             <p class="error">There was an error logging in, please try again.</p>

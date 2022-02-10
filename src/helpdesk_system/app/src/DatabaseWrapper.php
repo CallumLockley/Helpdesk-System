@@ -228,9 +228,9 @@ class DatabaseWrapper
     {
         try{
             $connect = $this->openConnection();
-            $query = "select * from tickets";
+            $query = "select count(id) from tickets";
             $statement = $connect->query($query);
-            $count = $statement->rowCount();
+            $count = $statement->fetchColumn();
         }
         catch(PDOException $error)
         {
@@ -242,9 +242,9 @@ class DatabaseWrapper
     {
         try{
             $connect = $this->openConnection();
-            $query = "select * from tickets where status = 'open'";
+            $query = "select count(id) from tickets where status = 'Open'";
             $statement = $connect->query($query);
-            $count = $statement->rowCount();
+            $count = $statement->fetchColumn();
         }
         catch(PDOException $error)
         {
@@ -252,4 +252,61 @@ class DatabaseWrapper
         }
         return $count;
     }
+    public function getPriorityTicketCount(){
+        try{
+            $connect = $this->openConnection();
+            $query = "select count(id) from tickets where priority = 'Low'";
+            $statement = $connect->query($query);
+            $count['low'] = $statement->fetchColumn();
+            $query = "select count(id) from tickets where priority = 'Medium'";
+            $statement = $connect->query($query);
+            $count['medium'] = $statement->fetchColumn();
+            $query = "select count(id) from tickets where priority = 'High'";
+            $statement = $connect->query($query);
+            $count['high'] = $statement->fetchColumn();
+        }
+        catch(PDOException $error)
+        {
+            die();
+        }
+        return $count;
+    }
+    public function getCommonCategory(){
+        try{
+            $connect = $this->openConnection();
+            $query = "select count(id) from tickets where category = 'Hardware'";
+            $statement = $connect->query($query);
+            $category['hardware'] = $statement->fetchColumn();
+            $query = "select count(id) from tickets where category = 'Account'";
+            $statement = $connect->query($query);
+            $category['account'] = $statement->fetchColumn();
+            $query = "select count(id) from tickets where category = 'Software'";
+            $statement = $connect->query($query);
+            $category['software'] = $statement->fetchColumn();
+            $query = "select count(id) from tickets where category = 'Other'";
+            $statement = $connect->query($query);
+            $category['other'] = $statement->fetchColumn();
+
+        }        catch(PDOException $error)
+        {
+            die();
+        }
+        return $category;
+    }
+
+    public function getAverageDuration(){
+        try{
+            $connect = $this->openConnection();
+            $query = "select created, closed from tickets where closed != ''";
+            $statement = $connect->query($query);
+            $ticket_times = $statement->fetchAll();
+        }        catch(PDOException $error)
+        {
+            die();
+        }
+        return $ticket_times;
+    }
+
+
+
 }
