@@ -13,11 +13,8 @@ $app->POST('/admin',
         $category = $database->getCommonCategory();
         $value = max($category);
         $highestCategory = ucfirst(array_search($value, $category));
-
         $ticket_times = $database->getAverageDuration();
-
-        average($ticket_times);
-
+        $averageDuration = average($ticket_times);
 
         $view = $app->getContainer()->get('view');
         $view->render($response,
@@ -31,7 +28,7 @@ $app->POST('/admin',
                 'pri_high' => $priority['high'],
                 'total_tickets' => $totalTickets,
                 'open_tickets' => $openTickets,
-                'average_duration' => 4,
+                'average_duration' => $averageDuration,
                 'common_category' => $highestCategory,
             ]);
 
@@ -39,19 +36,23 @@ $app->POST('/admin',
 
 function average($tickets)
 {
+    $amount = 0;
     foreach($tickets as $ticket) {
-        $created_date = substr($ticket['created'], 0,10);
-        $created_time = trim(substr($ticket['created'], 10));
-        $closed_date = substr($ticket['closed'], 0,10);
-        $closed_time = trim(substr($ticket['closed'], 10));
-
-        $date1 = date_create_from_format('Y-m-d', $created_date);
-        $date2 = date_create_from_format('Y-m-d', $closed_date);
-
-        $diff = date_diff($date1, $date2);
-        var_dump($diff);
+        $amount += strtotime($ticket['closed']) - strtotime($ticket['created']);
     }
+    $average = $amount / count($tickets);
+    $hours = round($average/3600,2);
 
+    if($hours < 1){
+        return ($hours*60) . 'minutes';
+    }
+    if($hours > 1)
+    {
+        $explodedTime = explode('.', $hours);
+        $minutes = ($explodedTime[1]*60) / 100;
+        return $explodedTime[0]. ' hours ' . $minutes . ' minutes';
+    }
+    return $hours . 'hours';
 }
 function getTickets($database){
     return $database->getAmountTickets();

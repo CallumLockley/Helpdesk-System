@@ -12,13 +12,23 @@ p.bg-light{
     grid-gap: 50px;
 }
 .header{
-    background-color: #ffffff;
     color: #000000;
     border-radius: 25px;
     text-align: justify-all;
     padding-top: 20px;
     margin-bottom: 20px;
 }
+.low{
+    background-color: lightgreen;
+}
+.medium{
+    background-color: orange;
+}
+.high{
+    background-color: hsl(0, 100%, 66%);
+}
+
+
 .wrapper {
     display: grid;
     grid-gap: 20px;
