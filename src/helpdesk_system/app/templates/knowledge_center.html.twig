@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="pt-5">    </div>
+    <section id="admin">
+        <div class="container">
+            <div class="row text-white p-4 ">
+                <h1 class="display-4 py-2 pt-3 text-center">Knowledge Center</h1>
+                <div class="kc-wrapper">
+                    <div class="a cp">
+                        <h4 class="pb-2">Changing Password</h4>
+                        <p class="kc">Select 'Update Password' button on the main <a class="kc" href="dashboard">dashboard</a></p>
+                        <p class="kc">Enter your current password</p>
+                        <p class="kc">Enter your new password - ensuring it is at least 8 characters containing capital, lowercase, number and special character.</p>
+                        <p class="kc">Repeat the same password submitting the form</p>
+                    </div>
+                    <div class="b cp">
+                        <h4 class="pb-2">Adding Ticket Details</h4>
+                        <p class="kc">Select  <a class="kc" href="view">'View Your Tickets'</a> button on the dashboard</p>
+                        <p class="kc">Locate the ticket from your list pressing 'View'</p>
+                        <p class="kc">Enter the new information within the 'New Comment' section</p>
+                        <p class="kc">Click the button 'Add Comment' to attach the information to your ticket.</p>
+                    </div>
+                    <div class="kc-c cp">
+                        <h4 class="pb-2">Changing Ticket Details</h4>
+                        <p class="kc">Select  <a class="kc" href="view">'View Your Tickets'</a> button on the dashboard</p>
+                        <p class="kc">Locate the ticket from your list pressing 'View'</p>
+                        <p class="kc">Enter the new information within the 'New Comment' section</p>
+                        <p class="kc">Click the button 'Add Comment' to attach the information to your ticket.</p>
+                    </div>
+                </div>
+                <form class="pt-4">
+                    <button class="btn btn-secondary justify-content-center" onclick="history.back()">Back</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}

@@ -1,5 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 
+/* Knowledge Center */
+div.cp{
+    border: white 5px solid;
+    padding: 10px;
+}
+p.kc{
+    padding: 0;
+    margin: 0;
+}
+a.kc{
+    color: white;
+}
+a.kc:hover {
+    color: #00a4ff
+}
+
+hr.kc-hr{
+    margin: 0;
+    color: rgba(0,0,0,0);
+    padding: 10px;
+}
+.kc-wrapper {
+    display: grid;
+    grid-gap: 20px;
+    justify-content: space-evenly;
+    margin: 0;
+}
+.kc-c {
+    grid-row: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
 /* Admin Panel */
 p.bg-light{
     color:black;
@@ -168,9 +201,6 @@ div.justified{
 }
 
 /*Ticket Form*/
-ticket_form{
-    max-width: 200px;
-}
 .fsize-15{
     font-size: 15px
 }

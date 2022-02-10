@@ -12,6 +12,9 @@ require 'routes/logout.php';
 require 'routes/dashboard/createTicket/create_ticket.php';
 require 'routes/dashboard/createTicket/process_ticket.php';
 
+//Knowledge Center
+require 'routes/dashboard/knowledgeCenter/knowledge_center.php';
+
 //Ticket Functionality
 require 'routes/dashboard/ticket/viewTickets/view_tickets.php';
 require 'routes/dashboard/ticket/viewAllTickets/view_all_tickets.php';
