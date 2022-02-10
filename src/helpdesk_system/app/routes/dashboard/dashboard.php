@@ -21,7 +21,7 @@ function dashboard($app, $response) : void {
             'username' => $_SESSION['username'],
             'permission' => $_SESSION['userPerms'],
             'dashboard_route' => URL_root . '/dashboard',
-            'nav_image_path' => IMAGES_PATH.'helpdesk.jpg'
+            'nav_image_path' => IMAGES_PATH.'helpdesk-header-image.png'
         ]);
 
 }

@@ -20,6 +20,7 @@ $app->POST('/view_ticket/{id}',     function(Request $request, Response $respons
                 'page_heading_1' => APP_NAME,
                 'viewOption' => 'all',
                 'css_path' => CSS_PATH,
+                'nav_image_path' => IMAGES_PATH.'helpdesk-header-image.png',
                 'dashboard_route' => URL_root . '/dashboard',
                 'username' => $_SESSION['username'],
                 'permission' => $_SESSION['userPerms'],

@@ -150,7 +150,16 @@ p.time{
 p.author{
     margin: 0;
 }
-
+h1.navbar-header{
+    display: inline;
+}
+img.nav-image{
+    margin-bottom: 15px;
+    padding-right: 20px;
+}
+.navbar.navbar-light{
+    background-color: #f7f7f7;
+}
 i {
     padding-right: 10px;
 }

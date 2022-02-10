@@ -18,6 +18,7 @@ function admin_panel($app, $response) : void {
         'admin_panel.html.twig',[
             'page_heading_1' => APP_NAME,
             'css_path' => CSS_PATH,
+            'nav_image_path' => IMAGES_PATH.'helpdesk-header-image.png',
             'username' => $_SESSION['username'],
             'permission' => $_SESSION['userPerms']
         ]);
