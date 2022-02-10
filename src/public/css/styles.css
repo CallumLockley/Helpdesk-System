@@ -141,6 +141,7 @@ hr.comments{
 hr.bottom-line{
     margin: 0 0 0.5em;
 }
+
 p.time{
     padding-right: 2em;
     text-align: right;
@@ -149,6 +150,11 @@ p.time{
 p.author{
     margin: 0;
 }
+
+i {
+    padding-right: 10px;
+}
+
 
 /*Sections*/
 #login {

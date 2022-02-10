@@ -20,7 +20,8 @@ function dashboard($app, $response) : void {
             'css_path' => CSS_PATH,
             'username' => $_SESSION['username'],
             'permission' => $_SESSION['userPerms'],
-            'dashboard_route' => URL_root . '/dashboard'
+            'dashboard_route' => URL_root . '/dashboard',
+            'nav_image_path' => IMAGES_PATH.'helpdesk.jpg'
         ]);
 
 }
