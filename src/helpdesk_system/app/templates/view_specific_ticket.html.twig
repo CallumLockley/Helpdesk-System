@@ -8,9 +8,11 @@
                     <div class="text-center p-4">
                         <div id="ticketHeading">
                             <h1 class="inline display-6 text-center">{{ page_heading }}</h1>
+                            {% if ticket['status'] == 'Open' %}
                             <form method="post" action="{{ resolve_ticket_route }}">
                                 <button type="submit" onClick='return confirmResolveSubmit()' class="btn-raised inline btn btn-secondary">Resolve</button>
                             </form>
+                            {% endif %}
                         </div>
                         <hr>
                         <table>
@@ -18,17 +20,24 @@
                                 <th>Category</th>
                                 <th>Priority</th>
                                 <th>Opened At</th>
+                                {% if ticket['status'] == 'Closed' %}
+                                <th>Closed</th>
+                                {% endif %}
                             </tr>
                             <tr>
                                 <td>{{ ticket['category'] }}</td>
                                 <td>{{ ticket['priority'] }}</td>
                                 <td>{{ ticket['created'] }}</td>
+                                {% if ticket['status'] == 'Closed' %}
+                                <td>{{ ticket['closed'] }}</td>
+                                {% endif %}
                             </tr>
                         </table>
                         <hr class="mt-4">
                         <h3>Description:</h3>
                         <article class="fsize-15">{{ ticket['description'] }}</article>
                         <hr class="mt-4">
+                        {% if ticket['status'] == 'Open' %}
                         <form method="post" action="{{ new_comment_route }}" >
                             <h3>New Comment</h3>
                             <div class="justified">
@@ -37,6 +46,7 @@
                             <button type="submit" class="btn btn-secondary mt-1 mb-1">Add Comment</button>
                         </form>
                         <hr>
+                        {% endif %}
                         {% if comments is not empty %}
                             <h3>Comments</h3>
                             {% for comment in comments %}
@@ -47,6 +57,7 @@
                                 </div>
                                 <hr class="comments">
                             {% endfor %}
+                            <hr class="bottom-line">
                         {% endif %}
                         <button class="btn btn-secondary" onclick="history.back()">Return to Tickets</button>
                     </div>
