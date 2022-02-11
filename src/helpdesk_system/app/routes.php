@@ -13,7 +13,7 @@ require 'routes/dashboard/createTicket/create_ticket.php';
 require 'routes/dashboard/createTicket/process_ticket.php';
 
 //Knowledge Center
-require 'routes/dashboard/knowledgeCenter/knowledge_center.php';
+require 'routes/dashboard/knowledgeCentre/knowledge_centre.php';
 
 //Ticket Functionality
 require 'routes/dashboard/ticket/viewTickets/view_tickets.php';
