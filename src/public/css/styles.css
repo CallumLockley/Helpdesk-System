@@ -27,11 +27,11 @@ hr.kc-hr{
     justify-content: space-evenly;
     margin: 0;
 }
-.kc-c {
-    grid-row: 3;
-    grid-column-start: 1;
-    grid-column-end: 3;
-}
+/*.kc-c {*/
+/*    grid-row: 3;*/
+/*    grid-column-start: 1;*/
+/*    grid-column-end: 3;*/
+/*}*/
 
 /* Admin Panel */
 p.bg-light{
