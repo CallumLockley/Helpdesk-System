@@ -32,7 +32,9 @@ hr.kc-hr{
 /*    grid-column-start: 1;*/
 /*    grid-column-end: 3;*/
 /*}*/
-
+i{
+    color: #34c6eb;
+}
 /* Admin Panel */
 p.bg-light{
     color:black;
