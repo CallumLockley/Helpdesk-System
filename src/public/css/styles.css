@@ -1,4 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+*{
+    font-family: "Ubuntu", sans-serif;
+    font-weight: normal;
+}
+
+body{
+    margin:0;
+    background-color: #d3d3d3;
+    overflow: auto;
+}
 
 /* Knowledge Centre */
 div.cp{
@@ -118,18 +128,7 @@ tr:nth-child(even){
 }
 
 
-*{
-    font-family: "Ubuntu", sans-serif;
-    font-weight: normal;
-}
 
-body{
-    margin:0;
-    color: white;
-    background-color: #d3d3d3;
-
-    overflow: auto;
-}
 
 option {
     font-size: 50px;
@@ -204,13 +203,13 @@ div.justified{
 
 /*Ticket Form*/
 .fsize-15{
-    font-size: 15px
+    font-size: 15px;
 }
 .fsize-20{
-    font-size: 20px
+    font-size: 20px;
 }
 .fsize-30{
-    font-size: 30px
+    font-size: 30px;
 }
 
 button.inline{
