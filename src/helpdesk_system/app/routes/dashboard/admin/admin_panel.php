@@ -37,22 +37,29 @@ $app->POST('/admin',
 function average($tickets)
 {
     $amount = 0;
+    $average = 0;
+    $hours = 0;
     foreach($tickets as $ticket) {
         $amount += strtotime($ticket['closed']) - strtotime($ticket['created']);
     }
-    $average = $amount / count($tickets);
-    $hours = round($average/3600,2);
-
-    if($hours < 1){
-        return ($hours*60) . 'minutes';
-    }
-    if($hours > 1)
+    if(count($tickets) == 0)
     {
-        $explodedTime = explode('.', $hours);
-        $minutes = ($explodedTime[1]*60) / 100;
-        return $explodedTime[0]. ' hours ' . $minutes . ' minutes';
+        $average = 'No Open Tickets';
+    }else{
+        $amount / count($tickets);
+        $hours = round($average/3600,2);
+        if($hours < 1){
+            return ($hours*60) . 'minutes';
+        }
+        if($hours > 1)
+        {
+            $explodedTime = explode('.', $hours);
+            $minutes = ($explodedTime[1]*60) / 100;
+            return $explodedTime[0]. ' hours ' . $minutes . ' minutes';
+        }
+        return $hours . 'hours';
     }
-    return $hours . 'hours';
+    return $average;
 }
 function getTickets($database){
     return $database->getAmountTickets();
