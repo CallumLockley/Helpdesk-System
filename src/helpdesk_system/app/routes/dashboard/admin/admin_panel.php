@@ -10,9 +10,15 @@ $app->POST('/admin',
         $totalTickets = getTickets($database);
         $openTickets = getOpenTickets($database);
         $priority = $database->getPriorityTicketCount();
-        $category = $database->getCommonCategory();
-        $value = max($category);
-        $highestCategory = ucfirst(array_search($value, $category));
+        $categorys = $database->getCommonCategory();
+        $value = max($categorys);
+
+        if($value != 0){
+            $highestCategory = ucfirst(array_search($value, $categorys));
+        }else{
+            $highestCategory = 'No Open Tickets';
+        }
+
         $ticket_times = $database->getAverageDuration();
         $averageDuration = average($ticket_times);
 
