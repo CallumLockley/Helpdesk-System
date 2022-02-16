@@ -52,10 +52,10 @@ function average($tickets)
     {
         $average = 'No Open Tickets';
     }else{
-        $amount / count($tickets);
+        $average = $amount / count($tickets);
         $hours = round($average/3600,2);
         if($hours < 1){
-            return ($hours*60) . 'minutes';
+            return ($hours*60) . ' minutes';
         }
         if($hours > 1)
         {
