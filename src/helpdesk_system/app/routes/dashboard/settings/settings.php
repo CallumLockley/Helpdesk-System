@@ -3,7 +3,7 @@
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
-$app->POST('/settings',
+$app->POST('/update_password',
     function(Request $request, Response $response) use ($app){
 
         $view = $app->getContainer()->get('view');
@@ -19,7 +19,7 @@ $app->POST('/settings',
             ]);
     })->setName('settings');
 
-$app->GET('/settings',
+$app->GET('/update_password',
     function(Request $request, Response $response) use ($app){
         $view = $app->getContainer()->get('view');
         $view->render($response,
@@ -32,4 +32,4 @@ $app->GET('/settings',
                 'permission' => $_SESSION['userPerms'],
                 'error' => $_SESSION['updateError']
             ]);
-    })->setName('settings');
+    })->setName('update_password');

@@ -1,7 +1,7 @@
 <?php
 
-ini_set('display_errors', 'On');
-ini_set('html_errors', 'On');
+ini_set('display_errors', 'Off');
+ini_set('html_errors', 'Off');
 
 define('DIRSEP', DIRECTORY_SEPARATOR);
 
