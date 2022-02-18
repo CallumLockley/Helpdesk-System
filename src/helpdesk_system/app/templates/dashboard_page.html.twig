@@ -5,55 +5,54 @@
             <div class="row text-white ">
                 <h1 class="display-4 p-4 text-center">Select an action...</h1>
                 <div class="btn-group">
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mx-auto text-center form">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 text-center pb-3">
                         <div class="px-2 mt-5 ">
                             <form method="POST" action="create" class="justify-content-center pb-3">
-                                <button type="submit" class="btn btn-secondary m-2 btn-lg w-100"><i class="fa-regular fa-square-plus"></i>Create a ticket</button>
+                                <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-regular fa-square-plus"></i>Create a ticket</button>
                             </form>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mx-auto text-center form pb-3">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 text-center pb-3">
                         <div class="px-2 mt-5 ">
                             <form method="POST" action="view" class="justify-content-center">
-                                <button type="submit" class="btn btn-secondary m-2 btn-lg w-100"><i class="fa-solid fa-clipboard-list"></i>View Your Tickets</button>
+                                <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-clipboard-list"></i>View Your Tickets</button>
                             </form>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mx-auto text-center form pb-3">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 text-center pb-3">
                         <div class="px-2 mt-5 ">
                             <form method="POST" action="knowledge_center" class="justify-content-center">
-                                <button type="submit" class="btn btn-secondary m-2 btn-lg w-100"><i class="fa-solid fa-book"></i>Knowledge Center</button>
+                                <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-book"></i>Knowledge Center</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row text-white mx-auto">
+            <div class="row text-white">
                 <div class="btn-group">
-                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-3 text-center mx-auto form ">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 text-center pb-3">
                     <div class="px-2 mt-5">
                         <form method="POST" action="update_password" class="justify-content-center pb-3">
-                            <button type="submit" class="btn btn-secondary m-2 btn-lg w-100"><i class="fa-solid fa-vault"></i>Update Password</button>
+                            <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-vault"></i>Update Password</button>
                         </form>
                     </div>
                 </div>
 {#                Only visible to support + admin users#}
                     {% if permission == 1 or permission == 2 %}
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 text-center mx-auto form pb-3">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 text-center pb-3">
                             <div class="px-2 mt-5 ">
                                 <form method="POST" action="view_all" class="justify-content-center">
-                                    <button type="submit" class="btn btn-secondary m-2 btn-lg w-100"><i class="fa-solid fa-database"></i>View All Tickets</button>
+                                    <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-database"></i>View All Tickets</button>
                                 </form>
                             </div>
                         </div>
                     {% endif %}
-
 {#                    Only visible to admin users#}
                 {% if permission == 2 %}
-                    <div class="col-xl-4 col-lg-4 col-md-2 col-sm-3 text-center mx-auto form pb-3">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-3 text-center pb-3">
                         <div class="px-2 mt-5 ">
                             <form method="POST" action="admin" class="justify-content-center">
-                                <button type="submit" class="btn btn-secondary m-2 btn-lg w-100"><i class="fa-regular fa-hard-drive"></i>Admin Panel</button>
+                                <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-regular fa-hard-drive"></i>Admin Panel</button>
                             </form>
                         </div>
                     </div>
@@ -61,6 +60,5 @@
                 </div>
             </div>
         </div>
-
     </section>
 {% endblock %}
