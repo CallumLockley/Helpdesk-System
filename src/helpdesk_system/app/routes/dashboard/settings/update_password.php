@@ -9,7 +9,7 @@ $app->post('/settings/update_password', function (Request $request, Response $re
     $current = $tainted['current_password'];
     $password_first = $tainted['password_first'];
     $password_second = $tainted['password_second'];
-    $userId = $_SESSION['user_id'];
+    $userId =  $_SESSION['userId'];
     $database = $app->getContainer()->get('database');
     //Hash new Password
     $hash = currentPassword($current,$database, $userId);
@@ -19,13 +19,16 @@ $app->post('/settings/update_password', function (Request $request, Response $re
   {
       if($database->updatePassword($userId, $verified_password))
       {
+          $database->logActivity($userId, 'Password updated successfully.');
           return $response->withRedirect(URL_root . '/dashboard');
       }else{
           $_SESSION['updateError'] = 1;
+          $database->logActivity($userId, 'Error updating password.');
           return $response->withRedirect(URL_root . '/settings');
       }
   }else{
       $_SESSION['updateError'] = 1;
+      $database->logActivity($userId, 'Error updating password.');
        return $response->withRedirect(URL_root . '/settings');
   }
 });

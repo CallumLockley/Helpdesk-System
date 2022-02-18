@@ -1,30 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
-*{
+
+* {
     font-family: "Ubuntu", sans-serif;
     font-weight: normal;
 }
 
-body{
-    margin:0;
+body {
+    margin: 0;
     background-color: #d3d3d3;
     overflow: auto;
 }
 
-i{
+i {
+    padding-right: 10px;
     color: #34c6eb;
 }
 
 /* Knowledge Centre */
-div.cp{
+div.cp {
     border: white 5px solid;
     padding: 10px;
 }
-p.kc{
+
+p.kc {
     padding: 0;
     margin: 0;
 }
 
-a.kc{
+a.kc {
     color: white;
 }
 
@@ -32,10 +35,16 @@ a.kc:hover {
     color: #00a4ff
 }
 
-hr.kc-hr{
+hr.kc-hr {
     margin: 0;
-    color: rgba(0,0,0,0);
+    color: rgba(0, 0, 0, 0);
     padding: 10px;
+}
+
+/*Dashboard Grid*/
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
 }
 
 .kc-wrapper {
@@ -46,8 +55,8 @@ hr.kc-hr{
 }
 
 /* Admin Panel */
-p.bg-light{
-    color:black;
+p.bg-light {
+    color: black;
 }
 
 .head-wrapper {
@@ -56,20 +65,24 @@ p.bg-light{
     justify-content: center;
     grid-gap: 50px;
 }
-.header{
+
+.header {
     color: #000000;
     border-radius: 25px;
     text-align: justify-all;
     padding-top: 20px;
     margin-bottom: 20px;
 }
-.low{
+
+.low {
     background-color: lightgreen;
 }
-.medium{
+
+.medium {
     background-color: orange;
 }
-.high{
+
+.high {
     background-color: hsl(0, 100%, 66%);
 }
 
@@ -81,6 +94,7 @@ p.bg-light{
     justify-content: space-evenly;
     margin: 0;
 }
+
 .box {
     background-color: #ffffff;
     color: #000000;
@@ -88,18 +102,22 @@ p.bg-light{
     text-align: center;
     padding: 10px 6em;
 }
+
 .a {
     grid-row: 2;
     grid-column: 1 / 2;
 }
+
 .b {
     grid-row: 2;
-    grid-column: 2 / 2 ;
+    grid-column: 2 / 2;
 }
+
 .c {
     grid-row: 3;
     grid-column: 1/2;
 }
+
 .d {
     grid-row: 3;
     grid-column: 2/2;
@@ -115,10 +133,12 @@ p.bg-light{
     grid-column: 2/2;
 }
 
+/**/
 /* View Tickets */
 table {
     width: 100%;
 }
+
 th {
     background-color: #d3d3d3;
     color: black;
@@ -127,28 +147,28 @@ th {
 th {
     padding: 8px;
 }
+
 td {
     margin: 0;
     padding: 0.2em;
 }
 
-tr:nth-child(even){
+tr:nth-child(even) {
     background-color: #ffffff;
     color: black;
 }
 
-
-
+/**/
 
 option {
     font-size: 50px;
 }
-p.error{
+
+p.error {
     border-radius: 25px;
     color: rgb(255, 255, 255);
     background-color: rgb(255, 0, 0);
 }
-
 
 footer {
     overflow: auto;
@@ -156,11 +176,13 @@ footer {
     margin: 2em;
     padding: 3px;
 }
+
 .ft .content {
     padding-top: 20px;
     padding-bottom: 20px;
     font-size: .793em;
 }
+
 .content {
     max-width: 1100px;
     width: 100%;
@@ -168,6 +190,7 @@ footer {
     padding: 0 20px;
 
 }
+
 .ft {
     font-size: 15px;
     background-color: #000;
@@ -176,105 +199,111 @@ footer {
 
 .btn-raised:not([disabled]):hover {
     background-color: red;
-    border-color:red;
+    border-color: red;
 }
 
- /*NavBar*/
-.navbar .navbar-brand{
-    margin-left:10% !important;
+/*NavBar*/
+.navbar-brand {
+    margin-left: 10% !important;
 }
 
-.navbar-custom {
-    background-color: rgba(0,0,0,0.7);
+.logout {
+    margin: 0 20px 0 20px;
 }
 
-div.justified{
+
+div.justified {
     margin: auto;
     display: block;
     max-width: 75%;
 }
 
 /*Container*/
-.container{
-    background-color: rgba(0,0,0,0.7);
+.container {
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 /*Dashboard*/
-#dashboard{
+#dashboard {
     padding-top: 2.5rem;
     margin-top: 2.5rem;
 }
 
 /*Login Page*/
-.text-bold{
+.text-bold {
     font-weight: bold !important;
     text-shadow: 2px 2px 8px black;
 }
 
 /*Ticket Form*/
-.fsize-15{
+.fsize-15 {
     font-size: 15px;
 }
-.fsize-20{
+
+.fsize-20 {
     font-size: 20px;
 }
-.fsize-30{
+
+.fsize-30 {
     font-size: 30px;
 }
 
-button.inline{
+button.inline {
     padding: 0.2rem;
     display: inline;
 }
 
 /*Ticket Comments*/
-div.comment-container{
+div.comment-container {
     padding-top: 0.5em;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255, 255, 255, 0.2);
     max-width: 100%;
 }
-hr.comments{
+
+hr.comments {
     margin: 0;
-    color: rgba(0,0,0,0);
+    color: rgba(0, 0, 0, 0);
 }
 
-hr.bottom-line{
+hr.bottom-line {
     margin: 0 0 0.5em;
 }
 
-p.time{
+p.time {
     padding-right: 2em;
     text-align: right;
     margin-top: 0;
 }
-p.author{
+
+p.author {
     margin: 0;
 }
-h1.navbar-header{
+
+h1.navbar-header {
     display: inline;
 }
-img.nav-image{
+
+img.nav-image {
     margin-bottom: 15px;
-    padding-right: 20px;
+    padding-right: 0px;
 }
-.navbar.navbar-light{
+
+.navbar.navbar-light {
     background-color: #f7f7f7;
-}
-i {
-    padding-right: 10px;
 }
 
 /*Sections*/
-#knowledge{
+#knowledge {
     text-align: center;
 }
 
-#admin{
+#admin {
     min-height: 75%;
     height: 100%;
     text-align: center;
     display: flex;
 }
+
 #login {
     height: 50%;
     text-align: center;
@@ -282,7 +311,8 @@ i {
     align-items: center;
     justify-content: center;
 }
-#options{
+
+#options {
     min-height: 75%;
     height: 100%;
     text-align: center;
@@ -290,17 +320,19 @@ i {
     align-items: center;
 }
 
-#options-area{
+#options-area {
     min-width: 75%;
     width: 100%;
     position: relative;
     z-index: 1;
 }
+
 #cover-caption {
     width: 100%;
     position: relative;
     z-index: 1;
 }
+
 #login .form:before {
     content: '';
     height: 100%;
@@ -310,4 +342,14 @@ i {
     width: 100%;
     z-index: -1;
     border-radius: 10px;
+}
+
+@media screen and (min-width: 500px) {
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 10px;
+        padding: 10px;
+    }
 }

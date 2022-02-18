@@ -13,13 +13,15 @@ $app->post('/process_ticket', function (Request $request, Response $response) us
     $ticket_content['priority'] = $tainted['priority'];
     $ticket_content['category'] = $tainted['category'];
 
-    $user_id = $_SESSION['user_id'];
+    $user_id = $_SESSION['userId'];
     $database = $app->getContainer()->get('database');
 
     $inserted  = $database->createTicket($user_id, $ticket_content);
 
     if($inserted)
     {
+        $user_id = $_SESSION['userId'];
+        $database->logActivity($user_id, 'New ticket created.');
         return  $response->withRedirect(URL_root . '/dashboard');
     }
 });
