@@ -23,10 +23,11 @@ $app->post('/auth', function (Request $request, Response $response) use ($app) {
     if(password_verify($tainted_password.BCRYPT_SALT, $passwordData['password']))
     {
         session_reset();
-        $_SESSION['user_id'] = $passwordData['userId'];
+        $_SESSION['userId'] = $passwordData['userId'];
         $_SESSION['username'] = $validated_username;
         $_SESSION['userPerms'] = $passwordData['permission'];
-        $password_result = true;
+        $user_id = $_SESSION['userId'];
+        $database->logActivity($user_id, 'User logged in.');
         return  $response->withRedirect(URL_root . '/dashboard');
 
     }else{

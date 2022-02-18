@@ -95,9 +95,8 @@ class DatabaseWrapper
         $result = false;
         try{
             $connect = $this->openConnection();
-            $query = "INSERT INTO tickets(user_id, title, priority, category, description) VALUES(:user_id, :title, :priority, :category, :description)";
+            $query = "INSERT INTO tickets(userId, title, priority, category, description) VALUES(:user_id, :title, :priority, :category, :description)";
             $statement = $connect->prepare($query);
-            var_dump($userId);
             $statement->bindValue('user_id', $userId);
             $statement->bindValue('title', $ticket_content['title']);
             $statement->bindValue('priority', $ticket_content['priority']);
@@ -305,6 +304,26 @@ class DatabaseWrapper
             die();
         }
         return $ticket_times;
+    }
+
+    //Activity Logging
+    public function logActivity($userId, $activity)
+    {
+        $result = false;
+        try {
+            $connect = $this->openConnection();
+            $query = "INSERT INTO activity(userId, description) VALUES(:user_id, :description)";
+            $statement = $connect->prepare($query);
+            $statement->bindValue('user_id', $userId);
+            $statement->bindValue('description', $activity);
+            $activityInsert = $statement->execute();
+            if($activityInsert)
+            { $result = true; }
+        }catch(PDOException $error)
+        {
+            die();
+        }
+        return $result;
     }
 
 
