@@ -19,9 +19,7 @@
                     <div class="text-center pb-3">
                         <div class="px-2 mt-5 ">
                             <form method="POST" action="view" class="justify-content-center">
-                                <button type="submit" class="btn btn-secondary btn-lg w-100"><i
-                                            class="fa-solid fa-clipboard-list"></i>View Your Tickets
-                                </button>
+                                <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-clipboard-list"></i>View Your Tickets</button>
                             </form>
                         </div>
                     </div>
@@ -30,33 +28,39 @@
                     <div class="text-center pb-3">
                         <div class="px-2 mt-5 ">
                             <form method="POST" action="knowledge_center" class="justify-content-center">
-                                <button type="submit" class="btn btn-secondary btn-lg w-100"><i
-                                            class="fa-solid fa-book"></i>Knowledge Center
-                                </button>
+                                <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-book"></i>Knowledge Center</button>                               </button>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="item4">
+                {% if permission == 0 %}
+                <div class="item4 update">
                     <div class="text-center pb-3">
                         <div class="px-2 mt-5">
                             <form method="POST" action="update_password" class="justify-content-center pb-3">
-                                <button type="submit" class="btn btn-secondary btn-lg w-100"><i
-                                            class="fa-solid fa-vault"></i>Update Password
-                                </button>
+                                <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-vault"></i>Update Password</button>
                             </form>
                         </div>
                     </div>
                 </div>
+                {% else %}
+                    <div class="item4">
+                        <div class="text-center pb-3">
+                            <div class="px-2 mt-5">
+                                <form method="POST" action="update_password" class="justify-content-center pb-3">
+                                    <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-vault"></i>Update Password</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
                 <div class="item5">
                     {# Only visible to support + admin users #}
                     {% if permission == 1 or permission == 2 %}
                         <div class="text-center pb-3">
                             <div class="px-2 mt-5 ">
                                 <form method="POST" action="view_all" class="justify-content-center">
-                                    <button type="submit" class="btn btn-secondary btn-lg w-100"><i
-                                                class="fa-solid fa-database"></i>View All Tickets
-                                    </button>
+                                    <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-database"></i>View All Tickets</button>
                                 </form>
                             </div>
                         </div>
@@ -68,9 +72,7 @@
                         <div class="text-center pb-3">
                             <div class="px-2 mt-5 ">
                                 <form method="POST" action="admin" class="justify-content-center">
-                                    <button type="submit" class="btn btn-secondary btn-lg w-100"><i
-                                                class="fa-regular fa-hard-drive"></i>Admin Panel
-                                    </button>
+                                    <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-regular fa-hard-drive"></i>Admin Panel</button>
                                 </form>
                             </div>
                         </div>
