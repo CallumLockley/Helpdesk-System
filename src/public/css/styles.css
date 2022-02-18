@@ -10,6 +10,10 @@ body{
     overflow: auto;
 }
 
+i{
+    color: #34c6eb;
+}
+
 /* Knowledge Centre */
 div.cp{
     border: white 5px solid;
@@ -19,9 +23,11 @@ p.kc{
     padding: 0;
     margin: 0;
 }
+
 a.kc{
     color: white;
 }
+
 a.kc:hover {
     color: #00a4ff
 }
@@ -31,20 +37,14 @@ hr.kc-hr{
     color: rgba(0,0,0,0);
     padding: 10px;
 }
+
 .kc-wrapper {
     display: grid;
     grid-gap: 20px;
     justify-content: space-evenly;
     margin: 0;
 }
-/*.kc-c {*/
-/*    grid-row: 3;*/
-/*    grid-column-start: 1;*/
-/*    grid-column-end: 3;*/
-/*}*/
-i{
-    color: #34c6eb;
-}
+
 /* Admin Panel */
 p.bg-light{
     color:black;
@@ -102,6 +102,16 @@ p.bg-light{
 }
 .d {
     grid-row: 3;
+    grid-column: 2/2;
+}
+
+.e {
+    grid-row: 4;
+    grid-column: 1/2;
+}
+
+.f {
+    grid-row: 4;
     grid-column: 2/2;
 }
 
