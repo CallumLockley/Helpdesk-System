@@ -21,10 +21,10 @@ define('BCRYPT_COST', 12);
 define('BCRYPT_SALT', 'ggYQBrUdtineZNVjdnILJaATuvWNpFqY');
 
 
-$ticket_priorities = ['Low','Medium', 'High'];
+$ticket_priorities = ['Low', 'Medium', 'High'];
 define('TICKET_PRIORITIES', $ticket_priorities);
 
-$ticket_categories = ['Hardware', 'Account', 'Software','Other'];
+$ticket_categories = ['Hardware', 'Account', 'Software', 'Other'];
 define('TICKET_CATEGORIES', $ticket_categories);
 
 $settings =
