@@ -255,13 +255,13 @@ class DatabaseWrapper
     public function getPriorityTicketCount(){
         try{
             $connect = $this->openConnection();
-            $query = "select count(id) from tickets where priority = 'Low'";
+            $query = "select count(id) from tickets where priority = 'Low' and status = 'Open'";
             $statement = $connect->query($query);
             $count['low'] = $statement->fetchColumn();
-            $query = "select count(id) from tickets where priority = 'Medium'";
+            $query = "select count(id) from tickets where priority = 'Medium' and status = 'Open'";
             $statement = $connect->query($query);
             $count['medium'] = $statement->fetchColumn();
-            $query = "select count(id) from tickets where priority = 'High'";
+            $query = "select count(id) from tickets where priority = 'High' and status = 'Open'";
             $statement = $connect->query($query);
             $count['high'] = $statement->fetchColumn();
         }
