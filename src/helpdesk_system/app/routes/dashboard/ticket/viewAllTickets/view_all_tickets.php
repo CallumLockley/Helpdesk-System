@@ -22,7 +22,7 @@ $app->POST('/view_all', function(Request $request, Response $response) use ($app
                 'permission' => $_SESSION['userPerms'],
                 'tickets' => $tickets
             ]);
-})->setName('viewAllTickets');
+})->setName('view_all');
 
 
 $app->GET('/view_all', function(Request $request, Response $response) use ($app){
@@ -44,4 +44,4 @@ $app->GET('/view_all', function(Request $request, Response $response) use ($app)
             'permission' => $_SESSION['userPerms'],
             'tickets' => $tickets
         ]);
-})->setName('viewAllTickets');
+})->setName('view_all');

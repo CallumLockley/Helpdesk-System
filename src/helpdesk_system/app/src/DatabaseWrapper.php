@@ -119,7 +119,7 @@ class DatabaseWrapper
     {
         try{
         $connect = $this->openConnection();
-        $query = "SELECT tickets.*, users.username FROM tickets, users WHERE tickets.user_id = users.userId and tickets.status = 'Open' ORDER BY tickets.created ASC;  ";
+        $query = "SELECT tickets.*, users.username FROM tickets, users WHERE tickets.userId = users.userId and tickets.status = 'Open' ORDER BY tickets.created ASC;  ";
         $statement = $connect->prepare($query);
         $statement->execute();
         $tickets = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -135,7 +135,7 @@ class DatabaseWrapper
     {
         try{
             $connect = $this->openConnection();
-            $query = "select * from tickets where user_id = :user_id ORDER BY status DESC;  ";
+            $query = "select * from tickets where userId = :user_id ORDER BY status DESC;  ";
             $statement = $connect->prepare($query);
             $statement->bindParam(':user_id', $userId);
             $statement->execute();

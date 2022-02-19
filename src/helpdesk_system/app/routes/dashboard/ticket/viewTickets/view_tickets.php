@@ -21,7 +21,7 @@ $app->POST('/view',
                 'permission' => $_SESSION['userPerms'],
                 'tickets'=> $tickets
             ]);
-    })->setName('viewTickets');
+    });
 
 $app->GET('/view',
     function(Request $request, Response $response) use ($app){
@@ -41,4 +41,4 @@ $app->GET('/view',
                 'permission' => $_SESSION['userPerms'],
                 'tickets'=> $tickets
             ]);
-    })->setName('viewTickets');
+    });
