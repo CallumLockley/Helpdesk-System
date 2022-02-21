@@ -5,46 +5,44 @@
         <div id="cover-caption">
             <div class="container shadow-lg">
                 <div class="row text-white ">
-                    <div class=" col-md-10 col-sm-6 mx-auto text-center form p-4">
-                        <h1 class="display-4 py-2 text-center">{{ page_heading }}</h1>
-                        <div class="px-2 mt-5 ">
-                            {% if tickets %}
-                                <table class="">
+                    <div class="text-center p-4">
+                        <h1 class="display-4 py-2 pt-3 text-center">{{ page_heading }}</h1>
+                        {% if tickets %}
+                            <table class="">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Priority</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                    {% if viewOption == 'all' %}
+                                        <th>Raised By</th>
+                                    {% endif %}
+                                </tr>
+                                {% for ticket in tickets %}
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Title</th>
-                                        <th>Category</th>
-                                        <th>Priority</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
+                                        <td>{{ ticket['id'] }}</td>
+                                        <td>{{ ticket['title'] }}</td>
+                                        <td>{{ ticket['category'] }}</td>
+                                        <td>{{ ticket['priority'] }}</td>
+                                        <td>{{ ticket['status'] }}</td>
+                                        <td>
+                                            <form method="POST" action="view_ticket/{{ ticket['id'] }}">
+                                                <button type="submit" class="btn btn-secondary view">View</button>
+                                            </form>
+                                        </td>
                                         {% if viewOption == 'all' %}
-                                            <th>Raised By</th>
+
+                                            <td>{{ ticket['username'] }}</td>
                                         {% endif %}
                                     </tr>
-                                    {% for ticket in tickets %}
-                                        <tr>
-                                            <td>{{ ticket['id'] }}</td>
-                                            <td>{{ ticket['title'] }}</td>
-                                            <td>{{ ticket['category'] }}</td>
-                                            <td>{{ ticket['priority'] }}</td>
-                                            <td>{{ ticket['status'] }}</td>
-                                            <td>
-                                                <form method="POST" action="view_ticket/{{ ticket['id'] }}">
-                                                    <button type="submit" class="btn btn-secondary">View</button>
-                                                </form>
-                                            </td>
-                                            {% if viewOption == 'all' %}
-
-                                                <td>{{ ticket['username'] }}</td>
-                                            {% endif %}
-                                        </tr>
-                                    {% endfor %}
-                                </table>
-                                {% else %}
-                                <h2>No Open Tickets.</h2>
-                            {% endif %}
-                            <button class="btn btn-secondary mt-5" onclick="history.back()">Back</button>
-                        </div>
+                                {% endfor %}
+                            </table>
+                        {% else %}
+                            <h2>No Open Tickets.</h2>
+                        {% endif %}
+                        <button class="btn btn-secondary mt-2" onclick="history.back()">Back</button>
                     </div>
                 </div>
             </div>
