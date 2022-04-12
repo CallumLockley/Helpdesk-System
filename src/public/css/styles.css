@@ -2,8 +2,9 @@
 
 * {
     font-family: "Ubuntu", sans-serif;
-    font-weight: normal;
 }
+
+
 
 body {
     margin: 0;
@@ -32,7 +33,7 @@ a.kc {
 }
 
 a.kc:hover {
-    color: #00a4ff
+    color: #00a4ff;
 }
 
 hr.kc-hr {
@@ -147,8 +148,6 @@ tr:nth-child(even) {
     color: black;
 }
 
-/**/
-
 option {
     font-size: 50px;
 }
@@ -160,11 +159,22 @@ p.error {
 }
 
 footer {
+    color: black;
     overflow: auto;
     text-align: center;
     margin: 2em;
     padding: 3px;
 }
+a.footer-link{
+    color: black;
+    text-decoration: underline 1px black;
+}
+a.footer-link:hover{
+    color: #00a4ff;
+    text-decoration: underline 1px #00a4ff;
+;
+}
+
 
 .ft .content {
     padding-top: 20px;
@@ -185,7 +195,6 @@ footer {
     background-color: #000;
 }
 
-
 .btn-raised:not([disabled]):hover {
     background-color: red;
     border-color: red;
@@ -193,7 +202,7 @@ footer {
 
 /*NavBar*/
 .navbar-brand {
-    margin-left: 10% !important;
+    margin-left: 10%;
 }
 
 .logout {
@@ -225,18 +234,6 @@ div.justified {
 }
 
 /*Ticket Form*/
-.fsize-15 {
-    font-size: 15px;
-}
-
-.fsize-20 {
-    font-size: 20px;
-}
-
-.fsize-30 {
-    font-size: 30px;
-}
-
 button.inline {
     padding: 0.2rem;
     display: inline;
@@ -274,7 +271,7 @@ h1.navbar-header {
 
 img.nav-image {
     margin-bottom: 15px;
-    padding-right: 0px;
+    padding-right: 0;
 }
 
 .navbar.navbar-light {

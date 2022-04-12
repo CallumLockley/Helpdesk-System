@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Helpdesk System</title>
@@ -12,7 +12,7 @@
 <nav class="navbar navbar-expand-md navbar-light">
     <div class="container-xl">
         <a class="navbar-brand" href="{{ dashboard_route }}">
-            <img class="nav-image" weight="50" height="50" src="{{ nav_image_path }}">
+            <img class="nav-image" height="50" src="{{ nav_image_path }}" alt="Header image">
             <h1 class="navbar-header">Helpdesk System</h1>
         </a>
         <form method="POST" action="logout" class="form-inline p-3">
@@ -24,8 +24,6 @@
 </nav>
 {% block content %}{% endblock %}
 <script src="https://kit.fontawesome.com/3aae6877dc.js" crossorigin="anonymous"></script>
-<footer>
-    <p>&copy; Callum Lockley | P2428726 <br>
-</footer>
+<footer>&copy; <a class="footer-link" href="https://github.com/CallumLockley">Callum Lockley</a> | P2428726</footer>
 </body>
 </html>
