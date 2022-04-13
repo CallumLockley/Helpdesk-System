@@ -9,26 +9,26 @@
                         <div class="mt-5">
                             <form method="POST" action="{{ create_ticket_route }}" class="justify-content-center">
                                 <div class="m-2 pb-3 form-group">
-                                    <label class="fsize-30" for="priority">Priority:</label>
-                                    <select class="pr-5 ml-4 fsize-20" name="priority">
+                                    <label class="" for="priority">Priority:</label>
+                                    <select class="pr-5 ml-4" name="priority">
                                         {% for priority in ticket_priorities %}
-                                            <option class="fsize-20" value={{priority}}>{{ priority }}</option>
+                                            <option class="" value={{priority}}>{{ priority }}</option>
                                         {% endfor %}
                                     </select>
                                     <span>&nbsp;&nbsp;&nbsp;</span>
-                                    <label class="fsize-30" for="category">Category:</label>
-                                    <select class="fsize-20" name="category">
+                                    <label class="" for="category">Category:</label>
+                                    <select class="" name="category">
                                         {% for category in ticket_categories %}
-                                            <option class="fsize-20" value={{category}}>{{ category }}</option>
+                                            <option class="" value={{category}}>{{ category }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="pb-2 fsize-30">Brief Description</label>
+                                    <label class="pb-2 ">Brief Description</label>
                                     <input type="text" name="title" class="form-control ticket_form" maxlength="50" placeholder="Enter a brief title describing the issue."required>
                                 </div>
                                 <div class="pt-4 pb-4 form-group">
-                                    <label class="pb-2 fsize-30">Details</label>
+                                    <label class="pb-2">Details</label>
                                     <textarea type="text" name="description" class="form-control ticket_form" rows="4" cols="50" placeholder="Explain your issue in detail."></textarea>
                                 </div>
                                 <button class="btn btn-secondary" onclick="history.back()">Back</button>

@@ -15,7 +15,6 @@ $app->post('/process_ticket', function (Request $request, Response $response) us
 
     $user_id = $_SESSION['userId'];
     $database = $app->getContainer()->get('database');
-
     $inserted  = $database->createTicket($user_id, $ticket_content);
 
     if($inserted)

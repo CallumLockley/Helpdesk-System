@@ -13,7 +13,6 @@ $app->post('/auth', function (Request $request, Response $response) use ($app) {
     $validated_username = $validator->validateEmail($tainted_username);
 
     $database = $app->getContainer()->get('database');
-    $bcrypt = $app->getContainer()->get('bcryptWrapper');
     $passwordData = $database->checkLoginDetails($validated_username);
 
     if(password_verify($tainted_password.BCRYPT_SALT, $passwordData['password']))
