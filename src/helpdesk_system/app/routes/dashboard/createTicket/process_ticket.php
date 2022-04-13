@@ -19,8 +19,7 @@ $app->post('/process_ticket', function (Request $request, Response $response) us
 
     if($inserted)
     {
-        $user_id = $_SESSION['userId'];
-        $database->logActivity($user_id, 'New ticket created.');
+        $database->logActivity($_SESSION['userId'], 'New ticket created.');
         return  $response->withRedirect(URL_root . '/dashboard');
     }
 });

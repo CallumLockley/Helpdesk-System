@@ -71,7 +71,7 @@ class DatabaseWrapper
         $result = false;
         try{
             $connect = $this->openConnection();
-            $query = "UPDATE users SET password = :new_password WHERE userId = :userId";
+            $query = "UPDATE users SET password = :new_password, last_updated = CURRENT_TIMESTAMP WHERE userId = :userId";
             $statement = $connect->prepare($query);
             $statement->execute(
                 array(
