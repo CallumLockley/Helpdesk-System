@@ -7,5 +7,5 @@ $app->post('/logout',
         session_destroy();
         $database = $app->getContainer()->get('database');
         $database->logActivity($_SESSION['userId'], 'User logged out.');
-        return $redirect = $response->withRedirect(URL_root . '/');
+        return $response->withRedirect(URL_root . '/');
 })->setName("logout");
