@@ -56,8 +56,7 @@ function verifying($password_first, $password_second, $app, $current)
 
 function hashPassword($app, $password)
 {
-    $bcrypt = $app->getContainer()->get('bcryptWrapper');
-    return $bcrypt->generateHash($password);
+    return $app->getContainer()->get('bcryptWrapper')->generateHash($password);
 }
 
 function compareNewOld($new_password, $old_password)
@@ -91,8 +90,6 @@ function checkNewPassword($password)
     }
 }
 
-function currentPassword($current, $database,$userId){
-
-    $password = $database->getUserPassword($userId);
-    return $password;
+function currentPassword($database,$userId){
+    return $database->getUserPassword($userId);;
 }
