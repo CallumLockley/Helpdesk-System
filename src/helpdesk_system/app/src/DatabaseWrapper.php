@@ -42,7 +42,6 @@ class DatabaseWrapper
             );
         } catch(PDOException $error)
         {
-            var_dump($error->getMessage());
             die();
         }
         return $statement->fetch(PDO::FETCH_ASSOC);
@@ -60,7 +59,6 @@ class DatabaseWrapper
             $row = $statement->fetch(PDO::FETCH_ASSOC);
         }catch(PDOException $error)
         {
-            var_dump($error->getMessage());
             die();
         }
         return $row['password'];
@@ -82,10 +80,8 @@ class DatabaseWrapper
             $result=true;
         }catch(PDOException $error)
         {
-            var_dump($error->getMessage());
             die();
         }
-
         return $result;
     }
 
@@ -109,7 +105,6 @@ class DatabaseWrapper
 
         }catch(PDOException $error)
         {
-            var_dump($error->getMessage());
             die();
         }
         return $result;
