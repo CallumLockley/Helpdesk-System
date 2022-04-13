@@ -21,10 +21,8 @@ $app->post('/auth', function (Request $request, Response $response) use ($app) {
         $_SESSION['userId'] = $passwordData['userId'];
         $_SESSION['username'] = $validated_username;
         $_SESSION['userPerms'] = $passwordData['permission'];
-        $user_id = $_SESSION['userId'];
-        $database->logActivity($user_id, 'User logged in.');
+        $database->logActivity($_SESSION['userId'], 'User logged in.');
         return  $response->withRedirect(URL_root . '/dashboard');
-
     }else{
         $_SESSION['loginError'] = true;
         return $response->withRedirect(URL_root . '/');

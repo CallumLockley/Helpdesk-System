@@ -9,17 +9,17 @@
                         <div class="mt-5">
                             <form method="POST" action="{{ create_ticket_route }}" class="justify-content-center">
                                 <div class="m-2 pb-3 form-group">
-                                    <label class="" for="priority">Priority:</label>
+                                    <label for="priority">Priority:</label>
                                     <select class="pr-5 ml-4" name="priority">
                                         {% for priority in ticket_priorities %}
-                                            <option class="" value={{priority}}>{{ priority }}</option>
+                                            <option value={{priority}}>{{ priority }}</option>
                                         {% endfor %}
                                     </select>
                                     <span>&nbsp;&nbsp;&nbsp;</span>
-                                    <label class="" for="category">Category:</label>
-                                    <select class="" name="category">
+                                    <label for="category">Category:</label>
+                                    <select name="category">
                                         {% for category in ticket_categories %}
-                                            <option class="" value={{category}}>{{ category }}</option>
+                                            <option value={{category}}>{{ category }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
