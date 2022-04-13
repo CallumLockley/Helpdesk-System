@@ -20,7 +20,6 @@ define('BCRYPT_AL', PASSWORD_DEFAULT);
 define('BCRYPT_COST', 12);
 define('BCRYPT_SALT', 'ggYQBrUdtineZNVjdnILJaATuvWNpFqY');
 
-
 $ticket_priorities = ['Low', 'Medium', 'High'];
 define('TICKET_PRIORITIES', $ticket_priorities);
 
@@ -54,5 +53,4 @@ $settings =
 
             ]
     ];
-
 return $settings;

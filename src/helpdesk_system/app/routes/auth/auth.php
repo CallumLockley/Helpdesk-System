@@ -17,9 +17,6 @@ $app->post('/auth', function (Request $request, Response $response) use ($app) {
     $bcrypt = $app->getContainer()->get('bcryptWrapper');
     $passwordData = $database->checkLoginDetails($validated_username);
 
-
-    var_dump($bcrypt->generateHash('test'));
-    var_dump($passwordData['password']);
     if(password_verify($tainted_password.BCRYPT_SALT, $passwordData['password']))
     {
         session_reset();
