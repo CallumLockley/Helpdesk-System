@@ -6,13 +6,12 @@ use Psr\Http\Message\ResponseInterface as Response;
 $app->post('/settings/update_password', function (Request $request, Response $response) use ($app) {
 
     $tainted = $request->getParsedBody();
-    $current = $tainted['current_password'];
     $password_first = $tainted['password_first'];
     $password_second = $tainted['password_second'];
     $userId =  $_SESSION['userId'];
     $database = $app->getContainer()->get('database');
     //Hash new Password
-    $hash = currentPassword($current,$database, $userId);
+    $hash = currentPassword($database, $userId);
     $verified_password = verifying($password_first,$password_second, $app, $hash);
 
   if($verified_password)
@@ -83,7 +82,7 @@ function checkNewPassword($password)
     $num    = preg_match('@[0-9]@', $password);
     $special = preg_match('@[^\w]@', $password);
 
-    if(!$upper || !$lower || !$num || !$special || strlen($password) < 8) {
+    if(!$upper || !$lower || !$num || !$special || strlen($password) <= 8) {
         return false;
     }else{
         return true;
