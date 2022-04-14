@@ -412,7 +412,7 @@ img.nav-image {
     .grid-container {
         display: grid;
         grid-template-columns: auto auto auto;
-        gap: 10px;
-        padding: 10px;
+        gap: 20px;
+        padding: 25px;
     }
 }
