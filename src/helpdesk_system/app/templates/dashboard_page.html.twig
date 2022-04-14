@@ -5,29 +5,23 @@
             <h1 class="display-4 p-4 text-center text-white">Select an action...</h1>
             <div class="grid-container">
                 <div class="item1">
-                    <div class="pb-3">
-                        <div class="px-2 mt-5 item1 ">
-                            <form method="POST" action="create" class="justify-content-center pb-3">
-                                <button type="submit" class="btn btn-secondary btn-lg w-100"><i
-                                            class="fa-regular fa-square-plus"></i>Create a ticket
-                                </button>
-                            </form>
-                        </div>
+                    <div class="pb-3 px-2">
+                        <form method="POST" action="create" class="">
+                            <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-regular fa-square-plus"></i>Create a ticket</button>
+                        </form>
                     </div>
                 </div>
                 <div class="item2">
-                    <div class="pb-3">
-                        <div class="px-2 mt-5 ">
-                            <form method="POST" action="view" class="justify-content-center">
+                    <div class="pb-3 px-2">
+                            <form method="POST" action="view" class="">
                                 <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-clipboard-list"></i>View Your Tickets</button>
                             </form>
-                        </div>
                     </div>
                 </div>
                 <div class="item3">
                     <div class="pb-3">
-                        <div class="px-2 mt-5 ">
-                            <form method="POST" action="knowledge_center" class="justify-content-center">
+                        <div class="px-2">
+                            <form method="POST" action="knowledge_center" class="">
                                 <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-book"></i>Knowledge Center</button>                               </button>
                             </form>
                         </div>
@@ -36,8 +30,8 @@
                 {% if permission == 0 %}
                 <div class="item4 update">
                     <div class="pb-3">
-                        <div class="px-2 mt-5">
-                            <form method="POST" action="update_password" class="justify-content-center pb-3">
+                        <div class="px-2">
+                            <form method="POST" action="update_password" class="">
                                 <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-vault"></i>Update Password</button>
                             </form>
                         </div>
@@ -46,8 +40,8 @@
                 {% else %}
                     <div class="item4">
                         <div class="pb-3">
-                            <div class="px-2 mt-5">
-                                <form method="POST" action="update_password" class="justify-content-center pb-3">
+                            <div class="px-2">
+                                <form method="POST" action="update_password" class="">
                                     <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-vault"></i>Update Password</button>
                                 </form>
                             </div>
@@ -58,8 +52,8 @@
                     {# Only visible to support + admin users #}
                     {% if permission == 1 or permission == 2 %}
                         <div class="pb-3">
-                            <div class="px-2 mt-5 ">
-                                <form method="POST" action="view_all" class="justify-content-center">
+                            <div class="px-2">
+                                <form method="POST" action="view_all" class="">
                                     <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-database"></i>View All Tickets</button>
                                 </form>
                             </div>
@@ -70,8 +64,8 @@
                     {# Only visible to admin users #}
                     {% if permission == 2 %}
                         <div class="pb-3">
-                            <div class="px-2 mt-5 ">
-                                <form method="POST" action="admin" class="justify-content-center">
+                            <div class="px-2">
+                                <form method="POST" action="admin" class="">
                                     <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-regular fa-hard-drive"></i>Admin Panel</button>
                                 </form>
                             </div>

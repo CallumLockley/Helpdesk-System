@@ -10,7 +10,6 @@
                         {% if tickets %}
                             <table class="">
                                 <tr>
-                                    <th>ID</th>
                                     <th>Title</th>
                                     <th>Category</th>
                                     <th>Priority</th>
@@ -22,7 +21,6 @@
                                 </tr>
                                 {% for ticket in tickets %}
                                     <tr>
-                                        <td>{{ ticket['id'] }}</td>
                                         <td>{{ ticket['title'] }}</td>
                                         <td>{{ ticket['category'] }}</td>
                                         <td>{{ ticket['priority'] }}</td>
