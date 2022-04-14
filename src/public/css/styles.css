@@ -90,9 +90,7 @@ p.bg-light {
 .wrapper {
     display: grid;
     grid-gap: 20px;
-    grid-template-columns: auto auto;
-    color: #de1b1b;
-    justify-content: space-evenly;
+    grid-template-columns: auto;
 }
 
 .box {
@@ -354,17 +352,14 @@ img.nav-image {
 
     .head-wrapper {
         display: grid;
-        grid-template-columns: 150px 150px 150px;
+        grid-template-columns: 120px 120px 120px;
         justify-content: center;
         grid-gap: 50px;
     }
 
 
     .wrapper {
-        display: grid;
         grid-gap: 20px;
-        color: #de1b1b;
-        justify-content: space-evenly;
         margin: 0;
     }
 
@@ -414,5 +409,9 @@ img.nav-image {
         grid-template-columns: auto auto auto;
         gap: 20px;
         padding: 25px;
+    }
+
+    .wrapper {
+        grid-template-columns: auto auto;
     }
 }
