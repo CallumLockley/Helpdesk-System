@@ -54,11 +54,24 @@ function average($tickets)
         if ($hours < 1) {
             return ($hours * 60) . ' minutes';
         }
-        if ($hours > 1) {
+        else if ($hours > 24) {
+            $days = $hours / 24;
+            $explodedTime = explode('.', $days);
+            $hours = (substr($explodedTime[1],0,2)/100 *24);
+            $minutes = (substr($explodedTime[1],0,2)/100 *1440);
+
+            if($explodedTime[0] > 1 || $explodedTime[1] > 1){
+                return $explodedTime[0] . ' days ' . $hours . ' hours';
+            }else{
+                return $explodedTime[0] . ' day ' . $minutes . ' minutes';
+            }
+        }
+        else if ($hours > 1) {
             $explodedTime = explode('.', $hours);
             $minutes = ($explodedTime[1] * 60) / 100;
             return $explodedTime[0] . ' hours ' . $minutes . ' minutes';
         }
+
         return $hours . 'hours';
     }
     return $average;
