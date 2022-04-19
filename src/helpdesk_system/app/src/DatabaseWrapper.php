@@ -321,15 +321,16 @@ class DatabaseWrapper
         return $result;
     }
 
-    public function insertUser($username, $password)
+    public function insertUser($username, $password, $permission)
     {
         $result = false;
         try {
             $connect = $this->openConnection();
-            $query = "INSERT INTO users(username, password) VALUES(:username, :password)";
+            $query = "INSERT INTO users(username, password, permission, last_updated) VALUES(:username, :password, :permission, CURRENT_TIMESTAMP)";
             $statement = $connect->prepare($query);
             $statement->bindValue('username', $username);
             $statement->bindValue('password', $password);
+            $statement->bindValue('permission', $permission);
             $activityInsert = $statement->execute();
             if($activityInsert)
             { $result = true; }
