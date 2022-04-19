@@ -321,6 +321,25 @@ class DatabaseWrapper
         return $result;
     }
 
+    public function insertUser($username, $password)
+    {
+        $result = false;
+        try {
+            $connect = $this->openConnection();
+            $query = "INSERT INTO users(username, password) VALUES(:username, :password)";
+            $statement = $connect->prepare($query);
+            $statement->bindValue('username', $username);
+            $statement->bindValue('password', $password);
+            $activityInsert = $statement->execute();
+            if($activityInsert)
+            { $result = true; }
+        }catch(PDOException $error)
+        {
+            die();
+        }
+        return $result;
+    }
+
 
 
 }

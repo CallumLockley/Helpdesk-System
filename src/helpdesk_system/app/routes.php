@@ -28,3 +28,6 @@ require 'routes/dashboard/settings/update_password.php';
 
 //Admin Functionality
 require 'routes/dashboard/admin/admin_panel.php';
+
+//create user
+require 'routes/dashboard/createUser/create_user.php';
