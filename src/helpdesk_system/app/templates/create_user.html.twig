@@ -1,35 +1,48 @@
 {% extends 'layout.html.twig' %}
 {% block content %}
+{#
+    TODO Route for form on submission
+
+#}
+
     <div class="pt-5"></div>
     <section id="settings">
         <div class="container">
             <div class="row text-white ">
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-                    <h1 class="display-4 py-2 pt-3 text-center">Update your password</h1>
+                    <h1 class="display-4 py-2 pt-3 text-center">Create New User</h1>
                     {% if error == 1 %}
-                        <p class="error">There was an error updating, please try again.</p>
+                        <p class="error">There was an error creating the user, please try again.</p>
                     {% endif %}
                     <div class="px-2">
-                        <form method="POST" action="settings/update_password" class="justify-content-center">
-                            <div class="form-group">
-                                <label for="password" class="">Current Password</label>
-                                <input type="password" name="current_password" placeholder="Current Password" class="form-control" required>
+                        <form method="POST" action="{{ create_user_route }}">
+                            <label for="permission">Permission Level:</label>
+                            <select name="permission" id="cars">
+                                <option value="0">User</option>
+                                <option value="1">Support</option>
+                                <option value="2">Admin</option>
+                            </select>
+
+                            <div class="pt-4 form-group">
+                                <label for="username" class="">Username:</label>
+                                <input type="email" name="username" placeholder="Username" class="form-control" required>
                             </div>
                             <div class="pt-4 pb-2 form-group">
-                                <label for="password_first" class="">Enter your new password:</label>
+                                <label for="password_first" class="">Password:</label>
                                 <input type="password" name="password_first" placeholder="New Password" class="form-control" minlength="8">
                             </div>
                             <div class="pb-2 form-group">
-                                <label for="password_second" class="">Re-enter your new password:</label>
+                                <label for="password_second" class="">Re-enter the password:</label>
                                 <input type="password" name="password_second" placeholder="Repeat New Password" class="form-control" minlength="8">
                             </div>
                             <label class="pb-2">Please ensure it is at least 8 characters, contains lower, upper case with special and numerical values</label>
                             <button class="btn btn-secondary" onclick="history.back()">Back</button>
-                            <button type="submit" class="btn btn-secondary">Submit</button>
+                            <button id="newUserSubmit" type="submit" class="btn btn-secondary">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <script src="../js/checkNewUser.js"></script>
 {% endblock %}

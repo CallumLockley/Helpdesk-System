@@ -4,21 +4,16 @@
         <div class="container shadow-lg">
             <h1 class="display-4 p-4 text-center text-white">Select an action...</h1>
             <div class="grid-container">
-                <div class="item1">
                     <div class="pb-3 px-2">
                         <form method="POST" action="create" class="">
                             <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-regular fa-square-plus"></i>Create a ticket</button>
                         </form>
                     </div>
-                </div>
-                <div class="item2">
                     <div class="pb-3 px-2">
                             <form method="POST" action="view" class="">
                                 <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-clipboard-list"></i>View Your Tickets</button>
                             </form>
                     </div>
-                </div>
-                <div class="item3">
                     <div class="pb-3">
                         <div class="px-2">
                             <form method="POST" action="knowledge_center" class="">
@@ -26,19 +21,15 @@
                             </form>
                         </div>
                     </div>
-                </div>
                 {% if permission == 0 %}
-                <div class="item4 update">
-                    <div class="pb-3">
+                    <div class="pb-3 update">
                         <div class="px-2">
                             <form method="POST" action="update_password" class="">
                                 <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-vault"></i>Update Password</button>
                             </form>
                         </div>
                     </div>
-                </div>
                 {% else %}
-                    <div class="item4">
                         <div class="pb-3">
                             <div class="px-2">
                                 <form method="POST" action="update_password" class="">
@@ -46,9 +37,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
                 {% endif %}
-                <div class="item5">
                     {# Only visible to support + admin users #}
                     {% if permission == 1 or permission == 2 %}
                         <div class="pb-3">
@@ -59,8 +48,6 @@
                             </div>
                         </div>
                     {% endif %}
-                </div>
-                <div class="item6">
                     {# Only visible to admin users #}
                     {% if permission == 2 %}
                         <div class="pb-3">
@@ -70,8 +57,12 @@
                                 </form>
                             </div>
                         </div>
+                    <div class="pb-3 px-2">
+                        <form method="POST" action="user" class="">
+                            <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-regular fa-address-card"></i>Create User</button>
+                        </form>
+                    </div>
                     {% endif %}
-                </div>
             </div>
         </div>
     </section>
