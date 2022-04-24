@@ -3,6 +3,12 @@
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
+$app->GET('/knowledge_center',
+    function(Request $request, Response $response) use ($app) {
+        $this->database->openConnection();
+        return $response->withRedirect(URL_root . '/');
+    });
+
 $app->POST('/knowledge_center',
     function(Request $request, Response $response) use ($app){
         $view = $app->getContainer()->get('view');

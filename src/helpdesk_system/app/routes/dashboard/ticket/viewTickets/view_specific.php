@@ -12,7 +12,6 @@ $app->POST('/view_ticket/{id}',     function(Request $request, Response $respons
         $database = $app->getContainer()->get('database');
         $ticket = $database->getSpecificTicket($id);
         $comments = $database->getTicketsComment($ticket[0]['id']);
-
         $view = $app->getContainer()->get('view');
         $view->render($response,
             'view_specific_ticket.html.twig',[
@@ -33,12 +32,14 @@ $app->POST('/view_ticket/{id}',     function(Request $request, Response $respons
 });
 
 $app->GET('/view_ticket/{id}',     function(Request $request, Response $response) use ($app){
+    if($_SESSION['username'] == NULL)
+    {
+        return $response->withRedirect(URL_root . '/');
+    }else{
     $id = $request->getAttribute('id');
-
     $database = $app->getContainer()->get('database');
     $ticket = $database->getSpecificTicket($id);
     $comments = $database->getTicketsComment($ticket[0]['id']);
-
     $view = $app->getContainer()->get('view');
     $view->render($response,
         'view_specific_ticket.html.twig', [
@@ -53,5 +54,5 @@ $app->GET('/view_ticket/{id}',     function(Request $request, Response $response
             'new_comment_route' => URL_root . '/view_ticket/' . $id . '/new_comment',
             'resolve_ticket_route' => URL_root . '/view_ticket/' . $id . '/resolve',
             'comments' => $comments
-        ]);
+        ]);}
 });

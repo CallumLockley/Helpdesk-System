@@ -25,6 +25,10 @@ $app->POST('/view',
 
 $app->GET('/view',
     function(Request $request, Response $response) use ($app){
+        if($_SESSION['username'] == NULL)
+        {
+            return $response->withRedirect(URL_root . '/');
+        }else{
         $database = $app->getContainer()->get('database');
         $user_id = $_SESSION['user_id'];
         $tickets = $database->getUsersTickets($user_id);
@@ -40,5 +44,5 @@ $app->GET('/view',
                 'username' => $_SESSION['username'],
                 'permission' => $_SESSION['userPerms'],
                 'tickets'=> $tickets
-            ]);
+            ]);}
     });

@@ -20,6 +20,10 @@ $app->POST('/user',
 
 $app->GET('/user',
     function(Request $request, Response $response) use ($app){
+        if($_SESSION['username'] == NULL)
+        {
+            return $response->withRedirect(URL_root . '/');
+        }else{
         $view = $app->getContainer()->get('view');
         $view->render($response,
             'create_user.html.twig',[
@@ -30,5 +34,5 @@ $app->GET('/user',
                 'css_path' => CSS_PATH,
                 'nav_image_path' => IMAGES_PATH.'helpdesk-header-image.png',
                 'create_user_route' => URL_root . '/process_user'
-            ]);
+            ]);}
     })->setName('user');

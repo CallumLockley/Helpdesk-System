@@ -6,7 +6,6 @@ use Psr\Http\Message\ResponseInterface as Response;
 $app->GET('/dashboard',
     function(Request $request, Response $response) use ($app){
     $this->database->openConnection();
-
     if($_SESSION['username'] == NULL)
     {
         return $response->withRedirect(URL_root . '/');

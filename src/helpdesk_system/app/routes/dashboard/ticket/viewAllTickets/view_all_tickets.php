@@ -26,7 +26,10 @@ $app->POST('/view_all', function(Request $request, Response $response) use ($app
 
 
 $app->GET('/view_all', function(Request $request, Response $response) use ($app){
-
+    if($_SESSION['username'] == NULL)
+    {
+        return $response->withRedirect(URL_root . '/');
+    }else{
     $database = $app->getContainer()->get('database');
     $tickets = $database->getAllTickets();
     $view = $app->getContainer()->get('view');
@@ -41,5 +44,5 @@ $app->GET('/view_all', function(Request $request, Response $response) use ($app)
             'username' => $_SESSION['username'],
             'permission' => $_SESSION['userPerms'],
             'tickets' => $tickets
-        ]);
+        ]);}
 })->setName('view_all');

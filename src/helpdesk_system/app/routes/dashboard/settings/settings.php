@@ -21,6 +21,10 @@ $app->POST('/update_password',
 
 $app->GET('/update_password',
     function(Request $request, Response $response) use ($app){
+        if($_SESSION['username'] == NULL)
+        {
+            return $response->withRedirect(URL_root . '/');
+        }else{
         $view = $app->getContainer()->get('view');
         $view->render($response,
             'settings_update_password.html.twig',[
@@ -31,5 +35,5 @@ $app->GET('/update_password',
                 'username' => $_SESSION['username'],
                 'permission' => $_SESSION['userPerms'],
                 'error' => $_SESSION['updateError']
-            ]);
+            ]);}
     })->setName('update_password');

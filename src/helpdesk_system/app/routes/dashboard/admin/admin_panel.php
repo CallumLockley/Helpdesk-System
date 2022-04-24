@@ -3,25 +3,27 @@
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
+$app->GET('/admin',
+    function(Request $request, Response $response) use ($app) {
+        $this->database->openConnection();
+        return $response->withRedirect(URL_root . '/');
+    });
+
 $app->POST('/admin',
     function (Request $request, Response $response) use ($app) {
-
         $database = $app->getContainer()->get('database');
         $totalTickets = getTickets($database);
         $openTickets = getOpenTickets($database);
         $priority = $database->getPriorityTicketCount();
         $categorys = $database->getCommonCategory();
         $value = max($categorys);
-
         if ($value != 0) {
             $highestCategory = ucfirst(array_search($value, $categorys));
         } else {
             $highestCategory = 'No Open Tickets';
         }
-
         $ticket_times = $database->getAverageDuration();
         $averageDuration = average($ticket_times);
-
         $view = $app->getContainer()->get('view');
         $view->render($response,
             'admin_panel.html.twig', [
@@ -37,7 +39,6 @@ $app->POST('/admin',
                 'average_duration' => $averageDuration,
                 'common_category' => $highestCategory,
             ]);
-
     })->setName('adminPanel');
 
 function average($tickets)
