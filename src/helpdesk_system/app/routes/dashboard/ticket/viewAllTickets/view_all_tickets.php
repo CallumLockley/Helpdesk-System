@@ -4,11 +4,6 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
 $app->POST('/view_all', function(Request $request, Response $response) use ($app){
-
-        $database = $app->getContainer()->get('database');
-
-        $tickets = $database->getAllTickets();
-
         $view = $app->getContainer()->get('view');
         $view->render($response,
             'view_tickets.html.twig',[
@@ -20,7 +15,7 @@ $app->POST('/view_all', function(Request $request, Response $response) use ($app
                 'dashboard_route' => URL_root . '/dashboard',
                 'username' => $_SESSION['username'],
                 'permission' => $_SESSION['userPerms'],
-                'tickets' => $tickets
+                'tickets' => getTicketsLatest($app)
             ]);
 })->setName('view_all');
 
@@ -30,8 +25,6 @@ $app->GET('/view_all', function(Request $request, Response $response) use ($app)
     {
         return $response->withRedirect(URL_root . '/');
     }else{
-    $database = $app->getContainer()->get('database');
-    $tickets = $database->getAllTickets();
     $view = $app->getContainer()->get('view');
     $view->render($response,
         'view_tickets.html.twig',[
@@ -43,6 +36,11 @@ $app->GET('/view_all', function(Request $request, Response $response) use ($app)
             'dashboard_route' => URL_root . '/dashboard',
             'username' => $_SESSION['username'],
             'permission' => $_SESSION['userPerms'],
-            'tickets' => $tickets
+            'tickets' => getTicketsLatest($app)
         ]);}
 })->setName('view_all');
+
+function getTicketsLatest($app){
+    $database = $app->getContainer()->get('database');
+    return $database->getAllTickets();
+}
