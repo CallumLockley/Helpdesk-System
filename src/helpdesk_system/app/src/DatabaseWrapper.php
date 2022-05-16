@@ -7,15 +7,6 @@ use PDOException;
 
 class DatabaseWrapper
 {
-    public function __construct()
-    {
-    }
-
-    public function __destruct()
-    {
-    }
-
-
     public function openConnection()
     {
         $dsn = "mysql:host=localhost;dbname=helpdesk_system;charset=UTF8";
