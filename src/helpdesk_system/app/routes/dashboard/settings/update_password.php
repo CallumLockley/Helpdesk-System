@@ -23,12 +23,12 @@ $app->post('/settings/update_password', function (Request $request, Response $re
       }else{
           $_SESSION['updateError'] = 1;
           $database->logActivity($userId, 'Error updating password.');
-          return $response->withRedirect(URL_root . '/settings');
+          return $response->withRedirect(URL_root . '/update_password');
       }
   }else{
       $_SESSION['updateError'] = 1;
       $database->logActivity($userId, 'Error updating password.');
-       return $response->withRedirect(URL_root . '/settings');
+       return $response->withRedirect(URL_root . '/update_password');
   }
 });
 
